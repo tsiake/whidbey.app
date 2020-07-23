@@ -11,5 +11,4 @@ downloads go through downloadsRouter.js - (receipts, pdfs, etc) - to be implemen
 
 the initial webpage gets sent through homeRouter.js, react-router handles the other page links
 
-recaptcha is handled via recaptchaRouter.js: sends POST request to google.com/recaptcha/api/siteverify, response is sent via json property "success" t/f
 ```
