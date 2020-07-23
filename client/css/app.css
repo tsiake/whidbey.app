@@ -1,0 +1,41 @@
+@font-face {
+  font-family: rad-med;
+  src: url('../font/Rajdhani-Medium.ttf');
+}
+@font-face {
+  font-family: rad-reg;
+  src: url('../font/Rajdhani-Regular.ttf');
+}
+@font-face {
+  font-family: rad-light;
+  src: url('../font/Rajdhani-Light.ttf');
+}
+#root {
+  color: #201e1f;
+  background-color: #ebf5ee;
+  height: 100%;
+  font-family: rad-reg;
+}
+.controlinput {
+  text-align: center;
+  padding: 5px;
+}
+.header_image {
+  text-align: center;
+  padding: 2%;
+}
+.header_link {
+  color: #008457;
+  font-family: rad-med;
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+}
+.header_link:hover,
+a:hover {
+  text-decoration: none;
+}
+.navbar-light .navbar-brand {
+  padding-left: 20px;
+}
