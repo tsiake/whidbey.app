@@ -1,11 +1,3 @@
-# is_project
+# whidbey.io client side
 ******
-# CURRENTLY working on profile / edit profile views
-
-App.jsx - main jsx file from which all components are routed
-
-/build - transpiled jsx to js
-
-/components - react components
-
-/lib - APIs / tests
+need to fix apis / clean up code
