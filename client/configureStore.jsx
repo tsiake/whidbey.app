@@ -3,7 +3,7 @@ import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
 
 // import reducers
-import apiReducer from './redux/reducers/exlang';
+import apiReducer from './redux/reducers/reducer';
 
 const configureStore = () => {
   const middlewares = [thunk];
