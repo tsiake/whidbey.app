@@ -7,8 +7,8 @@ import configureStore from './configureStore.jsx';
 
 const store = configureStore();
 render(
-	<Provider store={store}>
-		<AppContainer />
-	</Provider>,
-	document.getElementById('root')
+  <Provider store={store}>
+    <AppContainer />
+  </Provider>,
+  document.getElementById('root')
 );

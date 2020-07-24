@@ -6,16 +6,16 @@ import thunk from 'redux-thunk';
 import apiReducer from './redux/reducers/exlang';
 
 const configureStore = () => {
-	const middlewares = [thunk];
-	if (process.env.NODE_ENV !== 'production') {
-		middlewares.push(createLogger());
-	}
+  const middlewares = [thunk];
+  if (process.env.NODE_ENV !== 'production') {
+    middlewares.push(createLogger());
+  }
 
-	return createStore(
-		// reducers,
-		apiReducer,
-		applyMiddleware(...middlewares)
-	);
+  return createStore(
+    // reducers,
+    apiReducer,
+    applyMiddleware(...middlewares)
+  );
 };
 
 export default configureStore;

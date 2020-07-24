@@ -4,21 +4,21 @@ import { BrowserRouter as Router, Switch, Route, browserHistory } from 'react-ro
 import AppContainer from './AppContainer.jsx';
 
 class Root extends React.Component {
-	render() {
-		return (
-			<div className="Root">
-				<Router history = {browserHistory}>
-					<Switch>
-						<Route path ="/" component = { AppContainer } />
-					</Switch>
-				</Router>
-			</div>
-		);
-	};
+  render() {
+    return (
+      <div className="Root">
+        <Router history = {browserHistory}>
+          <Switch>
+            <Route path ="/" component = { AppContainer } />
+          </Switch>
+        </Router>
+      </div>
+    );
+  };
 };
 
 Root.propTypes = {
-	store: PropTypes.object.isRequired,
+  store: PropTypes.object.isRequired,
 };
 
 export default Root;
