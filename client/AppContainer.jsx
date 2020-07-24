@@ -4,15 +4,15 @@ import App from './App.jsx';
 import { fetchCredentials, loginUser, logoutUser, registerUser, fetchShopList, fetchMyDetails, editMyProfile, confirmMyAccount, fetchMyNotifications, createMyNotification, sendMyMessage, fetchMyMessages} from './redux/actions/actions';
 
 const mapStateToProps = state => {
-	return({
-        username: state.username || ''
-	})
+  return({
+    username: state.username || ''
+  })
 }
 
 const mapDispatchToProps = dispatch => {
-	return ({
-		dispatch,
-	})
+  return ({
+    dispatch,
+  })
 }
 
 const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);

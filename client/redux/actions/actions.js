@@ -123,7 +123,7 @@ export const fetchItemList = (shop_id) => (dispatch, getState) => {
       dispatch({
         type: 'FETCH_ITEM_SUCCESS',
         isFetching: false,
-        shopsArray: response
+        itemsArray: response
       });
     },
     error => {
