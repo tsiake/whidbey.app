@@ -5,9 +5,9 @@ import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router
 import { Redirect } from 'react-router';
 
 // styles
-import './css/app.css';
-import './css/footer.css';
-import './bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/app.css';
+import './assets/css/footer.css';
+import './assets/bootstrap/dist/css/bootstrap.min.css';
 
 // components
 // import HomeContainer from './components/home/HomeContainer.jsx';

@@ -1,20 +1,20 @@
 @font-face {
-  font-family: rad-med;
-  src: url('../font/Rajdhani-Medium.ttf');
+  font-family: mont-med;
+  src: url('../assets/font/Montserrat-Medium.ttf');
 }
 @font-face {
-  font-family: rad-reg;
-  src: url('../font/Rajdhani-Regular.ttf');
+  font-family: mont-reg;
+  src: url('../assets/font/Montserrat-Regular.ttf');
 }
 @font-face {
-  font-family: rad-light;
-  src: url('../font/Rajdhani-Light.ttf');
+  font-family: mont-light;
+  src: url('../assets/font/Montserrat-Thin.ttf');
 }
 #root {
   color: #201e1f;
   background-color: #ebf5ee;
   height: 100%;
-  font-family: rad-reg;
+  font-family: mont-reg;
 }
 .controlinput {
   text-align: center;
@@ -26,7 +26,7 @@
 }
 .header_link {
   color: #008457;
-  font-family: rad-med;
+  font-family: mont-med;
   font-size: 20px;
   padding-left: 20px;
   padding-right: 20px;
@@ -34,8 +34,34 @@
 }
 .header_link:hover,
 a:hover {
-  text-decoration: none;
+  text-decoration: underline #008457;
 }
 .navbar-light .navbar-brand {
   padding-left: 20px;
+}
+.register_page {
+  padding-left: 35%;
+  padding-right: 35%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  text-align: center;
+}
+.recaptcha {
+  text-align: center;
+}
+.recaptcha-in {
+  display: inline-block;
+}
+.gap {
+  padding-top: 10px;
+}
+.whidbeyButton.btn.btn-primary {
+  border: 1px solid #201e1f;
+  background-color: #008457;
+  color: #fef9ef;
+}
+.whidbeyButton.btn.btn-primary:hover {
+  border: 1px solid #201e1f;
+  background-color: #fef9ef;
+  color: #008457;
 }

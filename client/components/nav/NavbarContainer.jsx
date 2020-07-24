@@ -6,7 +6,7 @@ import Navbar from './Navbar.jsx';
 
 const mapStateToProps = state => {
 	return ({
-        username: state.username || 'TestAccount'
+        username: state.username
 	})
 }
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group';
-import "bootstrap/dist/css/bootstrap.min.css";
 
 // will need to get props from App passed in, then depending on whether logged in, show login/register or profile/logout
 
@@ -23,12 +22,12 @@ class NavBar extends React.Component {
     return(
       <Navbar collapseOnSelect expand="lg" style={{backgroundColor:'#fef9ef', color:'#008457'}}>
         <Navbar.Brand href="/">
-          <img src="../.././img/android-chrome-192x192.png" alt="whidbey.io" width="50" height="50" />
+          <img src="../.././assets/img/android-chrome-192x192.png" alt="whidbey.io" width="50" height="50" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-            <Link to="/browse/items" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Items</div></Link> 
+            <Link to="/browse/items" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Browse</div></Link> 
             <Link to="/browse/shops" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Shops</div></Link>
           </Nav>
           <Nav>

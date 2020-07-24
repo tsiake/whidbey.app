@@ -3,30 +3,30 @@
 @main-text-color: #201e1f; //eerie black
 @floral: #fef9ef;
 
-@font-face { font-family: rad-med; src: url('../font/Rajdhani-Medium.ttf'); }
-@font-face { font-family: rad-reg; src: url('../font/Rajdhani-Regular.ttf'); }
-@font-face { font-family: rad-light; src: url('../font/Rajdhani-Light.ttf'); }
+@font-face { font-family: mont-med; src: url('../assets/font/Montserrat-Medium.ttf'); }
+@font-face { font-family: mont-reg; src: url('../assets/font/Montserrat-Regular.ttf'); }
+@font-face { font-family: mont-light; src: url('../assets/font/Montserrat-Thin.ttf'); }
 
 #root {
     color: @main-text-color;
     background-color: @bg-color-secondary;
     height: 100%;
-    font-family: rad-reg;
+    font-family: mont-reg;
 }
 
 .controlinput {
-    text-align:center;
+    text-align: center;
     padding: 5px;
 }
 
 .header_image {
-    text-align:center;
+    text-align: center;
     padding: 2%;
 }
 
 .header_link {
     color: #008457;
-    font-family: rad-med;    
+    font-family: mont-med;    
     font-size: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -34,9 +34,42 @@
 }
 
 .header_link:hover, a:hover {
-    text-decoration: none;
+    text-decoration: underline @bg-color-primary;
 }
 
 .navbar-light .navbar-brand {
-    padding-left:20px;
+    padding-left: 20px;
 }
+
+.register_page {
+    padding-left: 35%;
+    padding-right: 35%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
+}
+
+.recaptcha {
+    text-align: center;
+}
+
+.recaptcha-in {
+    display: inline-block;
+}
+
+.gap {
+    padding-top: 10px;
+}
+
+.whidbeyButton.btn.btn-primary {
+    border: 1px solid @main-text-color;
+    background-color: @bg-color-primary;
+    color: @floral
+}
+
+.whidbeyButton.btn.btn-primary:hover {
+    border: 1px solid @main-text-color;
+    background-color: @floral;
+    color: @bg-color-primary;
+}
+

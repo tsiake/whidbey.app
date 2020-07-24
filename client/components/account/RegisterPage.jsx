@@ -77,15 +77,14 @@ class RegisterPage extends React.Component {
                     <input type="password" className="form-control" id="inpPass" placeholder="Password" onChange={this.handlePassChange} value={this.state.inputPass}/>
                 </div>
 
-                <p>Important: If you have multiple people in a single residence applying for accounts, please go to our <a href="/discord">Discord</a> and apply for a multiple account waiver in our #support channel</p>
 
                 <div className="recaptcha">
                     <div className="recaptcha-in">
-                        <Recaptcha sitekey="6LeHsqsZAAAAAGlYyiXw9moCBEwraS7UmMZTnviH" render="explicit" onloadCallback={this.recaptchaLoaded} verifyCallback={this.handleRecaptcha} />
+                        <Recaptcha sitekey="6LczPrUZAAAAALbS9soM2yxZO0kI4f1TJg4RPyEJ" render="explicit" onloadCallback={this.recaptchaLoaded} verifyCallback={this.handleRecaptcha} />
                     </div>
                 </div>
                 <div className="gap"></div>
-                <Button className="intrepidButton" onClick={this.handleSubmit}>Register Account</Button>
+                <Button className="whidbeyButton" onClick={this.handleSubmit}>Register Account</Button>
             </form>
 
 
