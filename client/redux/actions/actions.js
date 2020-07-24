@@ -99,7 +99,29 @@ export const fetchShopList = () => (dispatch, getState) => {
   return fetchShops().then(
     response => {
       dispatch({
-        type: 'FETCH_COMMUNITY_SUCCESS',
+        type: 'FETCH_SHOP_SUCCESS',
+        isFetching: false,
+        shopsArray: response
+      });
+    },
+    error => {
+      dispatch({
+        type: 'API_FAILURE',
+        isFetching: false,
+        message: error.message || 'API Failure',
+      });
+    }
+  );
+};
+
+export const fetchItemList = (shop_id) => (dispatch, getState) => {
+
+  dispatch({ type: 'NETWORK_REQUEST', isFetching: true });
+
+  return fetchItems(shop_id).then(
+    response => {
+      dispatch({
+        type: 'FETCH_ITEM_SUCCESS',
         isFetching: false,
         shopsArray: response
       });
