@@ -87,6 +87,20 @@ export const fetchShops = () => {
   }).then(res => res.json())
 }
 
+// items API - retrieves a shop's items
+export const fetchItems = (shop_id) => {
+  const baseUrl = '/api/load_items';
+  return fetch(baseUrl, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Cache': 'no-cache'
+  },
+  credentials: 'include'
+  }).then(res => res.json())
+}
+
 // profile api section
 
 // fetches user's profile
