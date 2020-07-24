@@ -5,12 +5,14 @@ import { fetchCredentials, loginUser, logoutUser, registerUser, fetchShopList, f
 
 const mapStateToProps = state => {
   return({
-    username: state.username || ''
+    username: state.username,
+    message: state.message
   })
 }
 
 const mapDispatchToProps = dispatch => {
   return ({
+    fetchCredentials: () => dispatch(fetchCredentials()),
     dispatch,
   })
 }

@@ -1,6 +1,28 @@
 import { normalize } from 'normalizr';
-import { fetchUsername, loginAPI, registerAPI, logoutAPI, fetchShops, fetchMyProfile, editProfile, confirmAccount, fetchNotifications, createNotification, sendMessage, fetchMessages } from '../.././api/index';
+import { verifyCaptcha, fetchUsername, loginAPI, registerAPI, logoutAPI, fetchShops, fetchMyProfile, editProfile, confirmAccount, fetchNotifications, createNotification, sendMessage, fetchMessages } from '../.././api/index';
 import { getIsFetching, getMessage } from '../reducers/reducer';
+
+export const verifyMyCaptcha = (captchaObject) => (dispatch, getState) => {
+
+  dispatch({ type: 'NETWORK_REQUEST', isFetching: true });
+
+  return verifyCaptcha(captchaObject).then(
+    response => {
+      dispatch({
+        type: 'CAPTCHA_RESPONSE_SUCCESS',
+        isFetching: false,
+        success: response.success
+      });
+    },
+    error => {
+      dispatch({
+        type: 'API_FAILURE',
+        isFetching: false,
+        success: false
+      });
+    }
+  );
+};
 
 export const fetchCredentials = () => (dispatch, getState) => {
 
@@ -195,7 +217,7 @@ export const confirmMyAccount = (confUrl) => (dispatch, getState) => {
       dispatch({
         type: 'API_FAILURE',
         isFetching: false,
-        message: error.message || 'API Failure ',
+        message: error.message || 'Bad link, please try again.',
       });
     }
   );

@@ -1,1 +1,1 @@
-pm2 restart /etc/whidbey.io/server/ecosystem.yml --env dev
+pm2 restart /etc/whidbey.io/server/ecosystem.yml --env development

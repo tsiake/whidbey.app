@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var session = require('express-session');
 
+require('dotenv').config();
+
 app.use(express.static('/etc/whidbey.io/client/'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,12 +24,14 @@ app.use(session({
 }));
 
 var apiRouter = require('./routes/apiRouter.js');
+var confLinkRouter = require('./routes/confLinkRouter.js');
 var downloadsRouter = require('./routes/downloadsRouter.js');
 var homeRouter = require('./routes/homeRouter.js');
 app.use('/api', apiRouter);
+app.use('', confLinkRouter);
 app.use('/downloads', downloadsRouter);
 app.use('*', homeRouter);
 
-app.listen(9876, () => {
-	console.log('listening on 9876', "45.32.207.200");
+app.listen(process.env.APP_PORT, () => {
+	console.log('Now listening on port: ' + process.env.APP_PORT);
 });

@@ -31,10 +31,10 @@ class NavBar extends React.Component {
             <Link to="/browse/shops" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Shops</div></Link>
           </Nav>
           <Nav>
-              { this.state.username ? this.state.LoggedIn : '' }
-              { this.state.username ? '' : this.state.Register }
-              { this.state.username ? '' : this.state.Login }
-              { this.state.username ? this.state.Logout : '' }
+              { this.props.username ? this.state.LoggedIn : '' }
+              { this.props.username ? '' : this.state.Register }
+              { this.props.username ? '' : this.state.Login }
+              { this.props.username ? this.state.Logout : '' }
           </Nav>
         </Navbar.Collapse>
       </Navbar>

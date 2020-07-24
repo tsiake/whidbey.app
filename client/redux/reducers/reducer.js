@@ -11,6 +11,16 @@ const apiReducer = (state = [], action) => {
         isFetching: action.isFetching,
         message: action.message
       })
+    case 'CAPTCHA_RESPONSE_SUCCESS':
+      return Object.assign({}, state, {
+        success: action.success,
+        isFetching: action.isFetching
+      })
+    case 'CONFIRM_ACCOUNT_SUCCESS':
+      return Object.assign({}, state, {
+        message: action.message,
+        isFetching: action.isFetching
+      })
     case 'FETCH_USERNAME_SUCCESS':
       return Object.assign({}, state, {
         username: action.username,

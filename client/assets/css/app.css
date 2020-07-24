@@ -39,7 +39,8 @@ a:hover {
 .navbar-light .navbar-brand {
   padding-left: 20px;
 }
-.register_page {
+.register_page,
+.accConfirmationPage {
   padding-left: 35%;
   padding-right: 35%;
   padding-top: 5%;

@@ -14,6 +14,8 @@ import HomeContainer from './components/home/HomeContainer.jsx';
 import NavbarContainer from './components/nav/NavbarContainer.jsx';
 import Footer from './components/nav/Footer.jsx';
 import RegisterContainer from './components/account/RegisterContainer.jsx';
+import LoginContainer from './components/account/LoginContainer.jsx';
+import accConfirmContainer from './components/account/accConfirmContainer.jsx';
 
 //actions
 
@@ -23,7 +25,9 @@ class App extends React.Component {
     super()
   }
 
-  componentDidMount() { }
+  componentDidMount() {
+    this.props.fetchCredentials();
+  }
 
   render() {
     return (
@@ -34,7 +38,9 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component = { HomeContainer } />
               <Route exact path="/register" component = { RegisterContainer } />
+              <Route exact path="/login" component = { LoginContainer } />
               <Route exact path="/discord"> <Redirect to="https://discord.gg/BukGnYw" /> </Route>
+              <Route path="/confirm/:user_id" component = { accConfirmContainer } />
             </Switch>
             <Footer />
           </div>

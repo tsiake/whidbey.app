@@ -6,12 +6,24 @@ var router = express.Router();
 var bcrypt = require('bcryptjs');
 var Promise = require('promise');
 var randstr = require('randomstring');
+const fetch = require('isomorphic-fetch');
+
+// captcha verify api
+router.post('/captcha', ((req, res) => {
+  var url = 'https://www.google.com/recaptcha/api/siteverify?secret='+process.env.REACT_APP_CAPTCHA_SECRET+'&response='+req.body.response;
+  fetch(url, {
+    method: 'post'
+  })
+    .then(response => res.send({success: response.ok}))
+    .then(google_response => console.log(google_response))
+    .then(error => console.log(error));
+}));
 
 // login API
 router.post('/login', ((req, res) => {
 
-  var db = require('/etc/intrepid.cool/server/db/whidbey_db_connec.js');
-  var User = require('/etc/intrepid.cool/server/models/user_model.js');
+  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
+  var User = require('/etc/whidbey.io/server/models/user_model.js');
   var loginUser = new User({});
 
   loginUser.uname = req.body.email;
@@ -43,12 +55,13 @@ router.post('/logout', ((req, res) => {
 // register API
 router.post('/register', ((req, res) => {
   var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
+  var User = require('/etc/whidbey.io/server/models/user_model.js');
 
   var user = new User({ /*uname: req.body.email, upass: user.encryptPass(req.body.pass)*/ });
   var regUser = User.find({uname: req.body.email}).limit(1);
 
   regUser.then((x, err) => {
-    x.length > 0 ? (res.send({ success: false}), console.log('already registered')) : hashThis();
+    x.length > 0 ? (res.send({ success: false})) : hashThis();
   });
 
   var hashThis = _ => {
@@ -132,7 +145,7 @@ router.post('/notifications', ((req, res) => {
   myUser.then((x, err) => {
     var userNotifications = Notification.find({not_owner: x[0]._id});
     userNotifications.then((y, err) => {
-      res.send(success: true, notifications: y);
+      res.send({success: true, notifications: y});
     });
   });
 }));
@@ -161,7 +174,7 @@ router.post('/get_messages', ((req, res) => {
     var myMessageObj = Message.find({$or:[{sender_id: x[0]._id}, {receiver_id: x[0]._id}]});
     // once associated messages are fetched, send them back to user
     myMessageObj.then((y, err) => {
-      res.send(success: true, messages: y);
+      res.send({success: true, messages: y});
     })
   });
 }));

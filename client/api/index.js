@@ -1,3 +1,18 @@
+// verify captcha api
+export const verifyCaptcha = (captchaObject) => {
+  const baseUrl = '/api/captcha';
+  return fetch(baseUrl, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Cache': 'no-cache'
+    },
+    credentials: 'include',
+    body: JSON.stringify(captchaObject)
+  }).then(res => res.json())
+}
+
 // account api section
 
 // POST API endpoint for the fetch username service
