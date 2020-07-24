@@ -106,15 +106,7 @@ router.get('/load_shops', ((req, res) => {
   shops.then((x, err) => res.send(x));
 }));
 
-// load self profile
-router.post('/user_profile', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var Profile = require('/etc/whidbey.io/server/models/profile_model.js');
-  var user_profile = Profile.find({_id: req.body.user_id}).limit(1);
-  user_profile.then((x, err) => res.send(x[0]));
-}));
-
-router.post('/send_notification', ((req, res) => {
+router.post('/create_notification', ((req, res) => {
   var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js'); 
   var Notification = require('/etc/whidbey.io/server/models/notification_model.js');
 
