@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 
 import { loginUser } from '../.././redux/actions/actions';
 
-class RegisterPage extends React.Component {
+class LoginPage extends React.Component {
 
   constructor() {
     super();
@@ -13,7 +13,8 @@ class RegisterPage extends React.Component {
       username: '',
       inputPass: '',
       captcha: false,
-      message: ''
+      message: '',
+      canShow: false
     }
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -38,12 +39,14 @@ class RegisterPage extends React.Component {
   }
 
   loginRedirect () {
-    setTimeout(() => this.props.history.push('/'), 5000)
+    this.setState({canShow:true});
+    setTimeout(function() { this.props.history.push('/') }.bind(this), 2000);
+    setTimeout(() => this.setState({canShow:false}), 2000);
   }
 
   render () {
     return (
-        <div className="register_page">
+        <div className="login_page">
             <h5>{this.props.title}</h5>
             <form>
                 <div className="form-group inpfield">
@@ -57,13 +60,13 @@ class RegisterPage extends React.Component {
                 <Button className="whidbeyButton" onClick={this.handleSubmit}>Log in</Button>
             </form>
 
-            { this.props.message ? this.props.message : '' }
+            { this.state.canShow ? this.props.message : '' }
         </div>
     )
   }
 }
 
-RegisterPage.propTypes = {
+LoginPage.propTypes = {
   inputEmail: PropTypes.string.isRequired,
   inputPass: PropTypes.string.isRequired,
   handlePassChange: PropTypes.func,
@@ -71,4 +74,4 @@ RegisterPage.propTypes = {
 }
 
 
-export default RegisterPage;
+export default LoginPage;

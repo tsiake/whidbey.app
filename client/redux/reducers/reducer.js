@@ -39,6 +39,7 @@ const apiReducer = (state = [], action) => {
     case 'LOGIN_USER_SUCCESS':
       return Object.assign({}, state, {
         username: action.username,
+        message: action.message,
         isFetching: action.isFetching
       })
     case 'LOGOUT_USER_SUCCESS':

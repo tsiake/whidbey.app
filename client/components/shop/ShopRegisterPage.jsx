@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Recaptcha from 'react-recaptcha';
 import Button from 'react-bootstrap/Button';
 
-import { registerUser, verifyMyCaptcha } from '../.././redux/actions/actions';
+import { shop_registerUser, verifyMyCaptcha } from '../.././redux/actions/actions';
 
-class RegisterPage extends React.Component {
+class ShopRegisterPage extends React.Component {
 
   constructor() {
     super();
@@ -16,7 +16,6 @@ class RegisterPage extends React.Component {
       captcha: false,
       message: '',
       SK: process.env.REACT_APP_SITE_KEY,
-      canShow: false
     }
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -52,21 +51,18 @@ class RegisterPage extends React.Component {
     evt.preventDefault()
     if(this.state.captcha == true) {
       const newUser = {email: this.state.inputEmail, pass: this.state.inputPass};
-      this.props.dispatch(registerUser(newUser));
+      this.props.dispatch(shop_registerUser(newUser));
       this.setState({captcha: false})
-      this.showTempMessage();
     }
   }
 
   showTempMessage (msg) {
-    this.setState({canShow: true});
     setTimeout(() => this.props.history.push('/'), 5000)
-    setTimeout(() => this.setState({canShow: false}), 5000)
   }
 
   render () {
     return (
-        <div className="register_page">
+        <div className="shop_register_page">
             <h5>{this.props.title}</h5>
             <form>
                 <div className="form-group inpfield">
@@ -83,17 +79,17 @@ class RegisterPage extends React.Component {
                     </div>
                 </div>
                 <div className="gap"></div>
-                <Button className="whidbeyButton" onClick={this.handleSubmit}>Register Account</Button>
+                <Button className="whidbeyButton" onClick={this.handleSubmit}>ShopRegister Account</Button>
             </form>
 
 
-            { this.state.canShow ? this.props.message : '' }
+            { this.props.message ? this.props.message : '' }
         </div>
     )
   }
 }
 
-RegisterPage.propTypes = {
+ShopRegisterPage.propTypes = {
   inputEmail: PropTypes.string.isRequired,
   inputPass: PropTypes.string.isRequired,
   handlePassChange: PropTypes.func,
@@ -101,4 +97,4 @@ RegisterPage.propTypes = {
 }
 
 
-export default RegisterPage;
+export default ShopRegisterPage;

@@ -1,20 +1,20 @@
 @font-face {
-  font-family: mont-med;
-  src: url('../assets/font/Montserrat-Medium.ttf');
+  font-family: rale-med;
+  src: url('../assets/font/rale/static/Raleway-Medium.ttf');
 }
 @font-face {
-  font-family: mont-reg;
-  src: url('../assets/font/Montserrat-Regular.ttf');
+  font-family: rale-reg;
+  src: url('../assets/font/rale/static/Raleway-Regular.ttf');
 }
 @font-face {
-  font-family: mont-light;
-  src: url('../assets/font/Montserrat-Thin.ttf');
+  font-family: rale-light;
+  src: url('../assets/font/rale/static/Raleway-Light.ttf');
 }
 #root {
   color: #201e1f;
   background-color: #ebf5ee;
   height: 100%;
-  font-family: mont-reg;
+  font-family: rale-light;
 }
 .controlinput {
   text-align: center;
@@ -26,7 +26,7 @@
 }
 .header_link {
   color: #008457;
-  font-family: mont-med;
+  font-family: rale-reg;
   font-size: 20px;
   padding-left: 20px;
   padding-right: 20px;
@@ -40,7 +40,8 @@ a:hover {
   padding-left: 20px;
 }
 .register_page,
-.accConfirmationPage {
+.accConfirmationPage,
+.login_page {
   padding-left: 35%;
   padding-right: 35%;
   padding-top: 5%;

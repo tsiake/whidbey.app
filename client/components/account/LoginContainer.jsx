@@ -6,7 +6,8 @@ import { fetchMyDetails } from '../.././redux/actions/actions';
 const mapStateToProps = state => {
   return ({
     username: state.username,
-    message: state.message
+    message: state.message,
+    title: 'Log into your account',
   })
 }
 

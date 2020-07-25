@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group';
@@ -10,13 +11,12 @@ class NavBar extends React.Component {
     super();
       this.state = {
           Register: <Link to="/register" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Register</div></Link>,
-          Login: <Link to="/login" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Login</div></Link>,
-          LoggedIn: <NavDropdown title='Your Account' id="collasible-nav-dropdown" style={{color:'#008457', textDecoration: 'none'}}> <NavDropdown.Item><Link to="/profile"><div className="header_link">View Profile</div></Link></NavDropdown.Item> <NavDropdown.Divider /> <NavDropdown.Item><Link to="/dm"><div className="header_link">Messages</div></Link> </NavDropdown.Item> </NavDropdown>,
-          Logout: <Link to='/logout' style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Logout</div></Link>
+          Login: <Link to="/login" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Log in</div></Link>,
+          LoggedIn: <Link to='/profile' style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Settings</div></Link>,
+          Logout: <Link onClick={(e) => this.props.logoutUser()} style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Logout</div></Link>
 
       }
   } 
-
 
   render() {
     return(

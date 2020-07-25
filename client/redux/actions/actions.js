@@ -78,7 +78,8 @@ export const loginUser = (userObj) => (dispatch) => {
       dispatch({
         type: 'LOGIN_USER_SUCCESS',
         isFetching: false,
-        username: response.username
+        username: response.username,
+        message: 'Logged in. Redirecting...',
       });
     },
     error => {
@@ -101,14 +102,14 @@ export const logoutUser = () => (dispatch) => {
         type: 'LOGOUT_USER_SUCCESS',
         isFetching: false,
         username: null,
-        message: 'Thank you for logging out, now returning to the homepage.',
+        message: 'Thank you for logging in, now returning to the homepage.',
       });
     },
     error => {
       dispatch({
         type: 'API_FAILURE',
         isFetching: false,
-        message: 'API Failure - Logout',
+        message: 'API Failure',
       });
     }
   );
