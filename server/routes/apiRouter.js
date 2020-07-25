@@ -7,6 +7,41 @@ var bcrypt = require('bcryptjs');
 var Promise = require('promise');
 var randstr = require('randomstring');
 const fetch = require('isomorphic-fetch');
+//const rp = require('request-promise');
+
+// registerShop API
+router.post('/register-shop', ((req, res) => {
+  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
+  var Shop = require('/etc/whidbey.io/server/models/shop_model.js');
+  var Profile = require('/etc/whidbey.io/server/models/profile_model.js');
+
+  var shop = new Shop({ });
+  var shopProfile = Profile.find({uname: req.body.owner});
+  var existingShop = Shop.find({name: req.body.shop_name, shop_link: req.body.shop_link, owner: req.body.username}).limit(1);
+
+  existingShop.then((x, err) => {
+    x.length > 0 ? (res.send({ success: false})) : registerShop();
+  });
+
+  var registerShop = _ => {
+    shopProfile.then((y, err) => {
+      if(y.length > 0) {
+        y[0].own_shop = true;
+        y[0].save();
+      }
+    });
+    shop.name = req.body.shop_name;
+    shop.shop_link = req.body.shop_link;
+    shop.city = req.body.city;
+    shop.street = req.body.street;
+    shop.zip = req.body.zip;
+    shop.owner = req.body.owner;
+    shop.save();
+    user.sendShopRegistrationEmail(req.body.owner, shop_link);
+    res.send({success:true});
+  }
+}));
+
 
 // captcha verify api
 router.post('/captcha', ((req, res) => {
@@ -24,6 +59,10 @@ router.post('/login', ((req, res) => {
 
   var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
   var User = require('/etc/whidbey.io/server/models/user_model.js');
+  var Profile = require('/etc/whidbey.io/server/models/profile_model.js');
+  var Shop = require('/etc/whidbey.io/server/models/shop_model.js');
+
+
   var loginUser = new User({});
 
   loginUser.uname = req.body.email;
@@ -37,7 +76,34 @@ router.post('/login', ((req, res) => {
 
   var bcompare = thisUser.then((x, err) => {
     bcrypt.compare(req.body.pass, x[0].upass, function(err, result) {
+      console.log('logging in');
       // save the session, pass the username to client
+      let sessionProfile = Profile.find({uname:req.session.uname})
+      let sessionShop = Shop.find({owner:req.session.uname});
+
+      sessionProfile.then((y, err) => {
+        if(y.length > 0) {
+          req.session.name = y[0].name;
+          req.session.city = y[0].city;
+          req.session.street = y[0].street;
+          req.session.zip = y[0].zip;
+          req.session.user_since = y[0].user_since;
+          req.session.save();
+        }
+      });
+
+      sessionShop.then((z, err) => {
+        if(z.length > 0) {
+          req.session.shop_name = z[0].name;
+          req.session.shop_zip = z[0].zip;
+          req.session.shop_city = z[0].city;
+          req.session.shop_street = z[0].street;
+          req.session.shop_link = y[0].shop_link;
+          req.session.save();
+        }
+      });
+
+      console.log('email: '+ req.body.email);
       req.session.uname = req.body.email;
       req.session.save();
       res.send({success: true, username: req.body.email});
@@ -80,7 +146,7 @@ router.post('/register', ((req, res) => {
 // session api - grab username if logged into session
 router.get('/session', ((req, res) => {
   res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.send({user: req.session.uname});
+  res.send({user: req.session.uname, user_since: req.session.user_since, city: req.session.city, street: req.session.street, zip: req.session.zip, shop_link: req.session.shop_link, shop_name: req.session.shop_name, shop_city: req.session.shop_city, shop_street: req.session.shop_street, shop_zip: req.session.shop_zip});
 }));
 
 router.get('/profile_load', ((req, res) => {

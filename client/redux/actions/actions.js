@@ -31,9 +31,18 @@ export const fetchCredentials = () => (dispatch, getState) => {
   return fetchUsername().then(
     response => {
       dispatch({
-        type: 'FETCH_USERNAME_SUCCESS',
-        isFetching: false,
-        username: response.user
+        type: 'FETCH_DETAILS_SUCCESS',
+        username: response.user,
+        user_since: response.user_since,
+        city: response.city,
+        street: response.street,
+        zip: response.zip,
+        shop_link: response.shop_link,
+        shop_name: response.shop_name,
+        shop_city: response.shop_city,
+        shop_street: response.shop_street,
+        shop_zip: response.shop_zip,
+        isFetching: false
       });
     },
     error => {
@@ -41,6 +50,28 @@ export const fetchCredentials = () => (dispatch, getState) => {
         type: 'API_FAILURE',
         isFetching: false,
         message: error.message || 'Failed to acquire username. Try logging in.',
+      });
+    }
+  );
+};
+
+export const registerShop = (shopObj) => (dispatch) => {
+
+  dispatch({ type: 'NETWORK_REQUEST', isFetching: true });
+
+  registerShopAPI(shopObj).then(
+    response => {
+      dispatch({
+        type: 'REGISTER_SHOP_SUCCESS',
+        isFetching: false,
+        message: "Your shop was successfully registered. Check your account settings page, from which you may access your shop's settings and inventory."
+      });
+    },
+    error => {
+      dispatch({
+        type: 'API_FAILURE',
+        isFetching: false,
+        message: 'Shop registration failure: Duplicate shop name',
       });
     }
   );

@@ -41,7 +41,8 @@ a:hover {
 }
 .register_page,
 .accConfirmationPage,
-.login_page {
+.login_page,
+.shop_register_page {
   padding-left: 35%;
   padding-right: 35%;
   padding-top: 5%;

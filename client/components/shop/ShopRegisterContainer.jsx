@@ -4,7 +4,9 @@ import ShopRegisterPage from './ShopRegisterPage.jsx';
 
 const mapStateToProps = state => {
   return ({
-    message: state.message
+    username: state.username,
+    message: state.message,
+    title: 'If you own a shop or business on Whidbey Island, sign up here to list your merchandise'
   })
 }
 

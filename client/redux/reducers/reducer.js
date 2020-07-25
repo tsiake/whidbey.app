@@ -21,10 +21,20 @@ const apiReducer = (state = [], action) => {
         message: action.message,
         isFetching: action.isFetching
       })
-    case 'FETCH_USERNAME_SUCCESS':
+    case 'FETCH_DETAILS_SUCCESS':
       return Object.assign({}, state, {
-        username: action.username,
-        isFetching: action.isFetching
+        username: action.user,
+        name: action.name,
+        user_since: action.user_since,
+        city: action.city,
+        street: action.street,
+        zip: action.zip,
+        shop_link: action.shop_link,
+        shop_name: action.shop_name,
+        shop_city: action.shop_city,
+        shop_street: action.shop_street,
+        shop_zip: action.shop_zip,
+        isFetching: action.isFetching,
       })
     case 'FETCH_SHOP_SUCCESS':
       return Object.assign({}, state, {
@@ -48,6 +58,11 @@ const apiReducer = (state = [], action) => {
         profile: null,
         notArray: null,
         myMessagesArray: null,
+        isFetching: action.isFetching,
+        message: action.message
+      })
+    case 'REGISTER_SHOP_SUCCESS':
+      return Object.assign({}, state, {
         isFetching: action.isFetching,
         message: action.message
       })

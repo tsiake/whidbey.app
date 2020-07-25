@@ -45,6 +45,20 @@ export const loginAPI = (userInfo) => {
   }).then(res => res.json());
 }
 
+// POST API endpoint for the registerShop service
+// expects a username (email) and password
+export const registerShopAPI = (newShop) => {
+  const baseUrl = '/api/register-shop';
+  return fetch(baseUrl, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(newShop)
+  }).then(res => res.json())
+}
+
 // POST API endpoint for the register service
 // expects a username (email) and password
 export const registerAPI = (newUser) => {

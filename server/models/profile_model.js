@@ -7,8 +7,7 @@ var profileSchema = mongoose.Schema({
   city: String,
   street: String,
   zip: String,
-  own_shop: Boolean, // see if user owns a shop
-	shop_id: mongoose.Schema.Types.ObjectId, // or Objectid - linking to shop
+  own_shop: { type: Boolean, default: false }, // see if user owns a shop
 });
 
 /* profileSchema.methods = {
