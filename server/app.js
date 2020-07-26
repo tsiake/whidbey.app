@@ -32,7 +32,9 @@ app.use('', confLinkRouter);
 app.use('/downloads', downloadsRouter);
 app.use('*', homeRouter);
 
-// app.listen(process.env.APP_PORT, () => {
-app.listen(9876, () => {
+
+// for testing
+// app.listen(9876, () => {
+app.listen(process.env.APP_PORT, () => {
 	console.log('Now listening on port: ' + process.env.APP_PORT);
 });

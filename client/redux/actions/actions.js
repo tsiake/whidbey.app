@@ -32,8 +32,8 @@ export const fetchCredentials = () => (dispatch, getState) => {
     response => {
       dispatch({
         type: 'FETCH_DETAILS_SUCCESS',
-        username: response.user,
-        user_since: response.user_since,
+        username: response.username,
+        /*user_since: response.user_since,
         city: response.city,
         street: response.street,
         zip: response.zip,
@@ -41,7 +41,7 @@ export const fetchCredentials = () => (dispatch, getState) => {
         shop_name: response.shop_name,
         shop_city: response.shop_city,
         shop_street: response.shop_street,
-        shop_zip: response.shop_zip,
+        shop_zip: response.shop_zip,*/
         isFetching: false
       });
     },

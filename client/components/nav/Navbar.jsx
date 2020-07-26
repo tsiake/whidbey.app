@@ -18,11 +18,15 @@ class NavBar extends React.Component {
       }
   } 
 
+  componentDidMount() {
+    this.props.fetchCredentials();
+  }
+
   render() {
     return(
-      <Navbar collapseOnSelect expand="lg" style={{backgroundColor:'#fef9ef', color:'#008457'}}>
+      <Navbar collapseOnSelect expand="lg" style={{backgroundColor:'#eae7dc'}}>
         <Navbar.Brand href="/">
-          <img src="../.././assets/img/android-chrome-192x192.png" alt="whidbey.io" width="50" height="50" />
+          whidbey.io
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

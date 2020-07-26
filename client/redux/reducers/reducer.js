@@ -23,8 +23,8 @@ const apiReducer = (state = [], action) => {
       })
     case 'FETCH_DETAILS_SUCCESS':
       return Object.assign({}, state, {
-        username: action.user,
-        name: action.name,
+        username: action.username,
+        /*name: action.name,
         user_since: action.user_since,
         city: action.city,
         street: action.street,
@@ -33,7 +33,7 @@ const apiReducer = (state = [], action) => {
         shop_name: action.shop_name,
         shop_city: action.shop_city,
         shop_street: action.shop_street,
-        shop_zip: action.shop_zip,
+        shop_zip: action.shop_zip,*/
         isFetching: action.isFetching,
       })
     case 'FETCH_SHOP_SUCCESS':

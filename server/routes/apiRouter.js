@@ -145,8 +145,11 @@ router.post('/register', ((req, res) => {
 
 // session api - grab username if logged into session
 router.get('/session', ((req, res) => {
+  console.log('sending session');
+  console.log('session user: ' + req.session.uname);
   res.setHeader('Access-Control-Allow-Credentials', 'true');
-  res.send({user: req.session.uname, user_since: req.session.user_since, city: req.session.city, street: req.session.street, zip: req.session.zip, shop_link: req.session.shop_link, shop_name: req.session.shop_name, shop_city: req.session.shop_city, shop_street: req.session.shop_street, shop_zip: req.session.shop_zip});
+  res.send({username: req.session.uname});
+  //res.send({user: req.session.uname, user_since: req.session.user_since, city: req.session.city, street: req.session.street, zip: req.session.zip, shop_link: req.session.shop_link, shop_name: req.session.shop_name, shop_city: req.session.shop_city, shop_street: req.session.shop_street, shop_zip: req.session.shop_zip});
 }));
 
 router.get('/profile_load', ((req, res) => {

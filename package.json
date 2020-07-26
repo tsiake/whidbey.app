@@ -5,7 +5,7 @@
   "description": "a whidbey island merchant/purchasing app",
   "main": "index.js",
   "scripts": {
-    "run": "pm2 restart /etc/whidbey.io/server/ecosystem.yml --env production",
+    "run": "pm2 restart /etc/whidbey.io/server/ecosystem.yml --env development",
     "dev": "webpack -d --watch & pm2 start /etc/whidbey.io/server/ecosystem.yml --env development"
   },
   "author": "Zach Smith",

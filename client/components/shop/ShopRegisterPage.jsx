@@ -19,6 +19,7 @@ class ShopRegisterPage extends React.Component {
       inputStreet: '',
       inputZip: '',
       inputShopLink: '',
+      inputDesc: '',
       username: '',
       captcha: false,
       message: '',
@@ -27,6 +28,7 @@ class ShopRegisterPage extends React.Component {
 
     this.handleShopNameChange = this.handleShopNameChange.bind(this);
     this.handleCityChange = this.handleCityChange.bind(this);
+    this.handleDescChange = this.handleDescChange.bind(this);
     this.handleStreetChange = this.handleStreetChange.bind(this);
     this.handleZipChange = this.handleZipChange.bind(this);
     this.handleShopLinkChange = this.handleShopLinkChange.bind(this);
@@ -52,6 +54,10 @@ class ShopRegisterPage extends React.Component {
   handleShopNameChange (evt) {
     this.setState({inputShopName: evt.target.value});
     this.setState({inputShopLink: evt.target.value.replace(/\s/g, '').toLowerCase()});
+  }
+
+  handleDescChange (evt) {
+    this.setState({inputDesc: evt.target.value});
   }
 
   handleCityChange (evt) {
@@ -86,6 +92,7 @@ class ShopRegisterPage extends React.Component {
   render () {
     return (
         <div className="shop_register_page">
+            <h1>Register Your Shop</h1>
             <h5>{this.props.title}</h5>
             <Form>
               <Row>
@@ -129,6 +136,18 @@ class ShopRegisterPage extends React.Component {
               </Row>
               <Row>
                 <Col>
+                  <h3>Shop Description</h3>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <div className="form-group inpfield">
+                    <input type="textarea" className="form-control" id="inpDesc" placeholder="Description" onChange={this.handleDescChange} value={this.state.inputDesc}/>
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
                   <h3>Business Card Preview</h3>
                 </Col>
               </Row>
@@ -137,6 +156,8 @@ class ShopRegisterPage extends React.Component {
                 <h4>{ this.state.inputShopLink ? "https://whidbey.io/shops/" + this.state.inputShopLink : "" }</h4>
                 <p>{ this.state.inputStreet } </p>
                 <p>{ this.state.inputCity + " " + this.state.inputZip }</p>
+                <h4>{this.state.inputDesc ? "About " + this.state.inputDesc : ""}</h4>
+                <p>{this.state.inputDesc}</p>
               </Card>
 
               <div className="gap"></div>

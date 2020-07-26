@@ -13,14 +13,7 @@ class LandingPage extends React.Component {
 	render() {
 		return (
             <div className="controlinput">
-                <Heading size={500}>whidbey.io</Heading>
-                <div>
-                <WhidbeyTextInputContainer />
-                </div>
-                <div>
-                <WhidbeyButtonContainer />
-                </div>
-
+              <h1>Currently in development...</h1>
             </div>
 		)
 	}

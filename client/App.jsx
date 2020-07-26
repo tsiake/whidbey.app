@@ -6,7 +6,6 @@ import { Redirect } from 'react-router';
 
 // styles
 import './assets/css/app.css';
-import './assets/css/footer.css';
 import './assets/bootstrap/dist/css/bootstrap.min.css';
 
 // components

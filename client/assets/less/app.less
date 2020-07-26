@@ -1,22 +1,39 @@
-@bg-color-primary: #008457; // spanish viridian
-@bg-color-secondary: #ebf5ee; // mint cream
-@main-text-color: #201e1f; //eerie black
-@floral: #fef9ef;
+@bg-color-primary: #48639c; // queen blue 
+@bg-color-primary-bk: #e98074; // brighter
+@bg-color-secondary: #eae7dc; // bland bg
+@bg-color-secondary-bk: #d8c3a5; // bland bg darker
+@main-text-color: #373d3f; // raven 
 
 @font-face { font-family: rale-med; src: url('../assets/font/rale/static/Raleway-Medium.ttf'); }
 @font-face { font-family: rale-reg; src: url('../assets/font/rale/static/Raleway-Regular.ttf'); }
 @font-face { font-family: rale-light; src: url('../assets/font/rale/static/Raleway-Light.ttf'); }
+@font-face { font-family: rale-eb; src: url('../assets/font/rale/static/Raleway-ExtraBold.ttf'); }
+@font-face { font-family: rale-b; src: url('../assets/font/rale/static/Raleway-Bold.ttf'); }
+@font-face { font-family: rale-sb; src: url('../assets/font/rale/static/Raleway-SemiBold.ttf'); }
+@font-face { font-family: mo; src: url('../assets/font/mo/MedulaOne-Regular.ttf'); }
+
+@font-face { font-family: go; src: url('../assets/font/mo/MedulaOne-Regular.ttf'); }
+@font-face { font-family: lato-light; src: url('../assets/font/lato/Lato-Light.ttf'); }
+@font-face { font-family: lato-reg; src: url('../assets/font/lato/Lato-Regular.ttf'); }
+@font-face { font-family: lato-b; src: url('../assets/font/lato/Lato-Bold.ttf'); }
+@font-face { font-family: jura-med; src: url('../assets/font/jura/static/Jura-Medium.ttf'); }
+@font-face { font-family: jura-reg; src: url('../assets/font/jura/static/Jura-Regular.ttf'); }
+@font-face { font-family: jura-sb; src: url('../assets/font/jura/static/Jura-SemiBold.ttf'); }
+
+h1 {
+    color: @bg-color-primary;
+}
 
 #root {
     color: @main-text-color;
     background-color: @bg-color-secondary;
-    height: 100%;
-    font-family: rale-light;
+    height: 150%;
+    font-family: jura-reg;
 }
 
 .controlinput {
     text-align: center;
-    padding: 5px;
+    padding: 5%;
 }
 
 .header_image {
@@ -25,8 +42,8 @@
 }
 
 .header_link {
-    color: #008457;
-    font-family: rale-reg;    
+    color: @main-text-color;
+    font-family: jura-sb;    
     font-size: 20px;
     padding-left: 20px;
     padding-right: 20px;
@@ -34,6 +51,17 @@
 }
 
 .header_link:hover, a:hover {
+    text-decoration: underline @bg-color-primary;
+}
+
+.reg_link {
+    color: @main-text-color;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-family: jura-sb;    
+}
+
+.reg_link:hover, a:hover {
     text-decoration: underline @bg-color-primary;
 }
 
@@ -64,11 +92,24 @@
 .whidbeyButton.btn.btn-primary {
     border: 1px solid @main-text-color;
     background-color: @bg-color-primary;
-    color: @floral
+    color: @bg-color-secondary
 }
 
 .whidbeyButton.btn.btn-primary:hover {
     border: 1px solid @main-text-color;
-    background-color: @floral;
+    background-color: @bg-color-secondary;
     color: @bg-color-primary;
+}
+
+#footer {
+  position: absolute;
+  text-align: center;
+  right:0;bottom:0;left:0;
+  border-top: 1px solid @main-text-color;
+}
+
+html {
+  min-height: 100%;
+  min-height: 100vh;
+  position: relative;
 }
