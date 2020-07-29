@@ -21,15 +21,24 @@ import accConfirmContainer from './components/account/accConfirmContainer.jsx';
 
 class App extends React.Component {
 
+  state = {
+    loading: true
+  };
+
   constructor() {
     super()
   }
 
   componentDidMount() {
-    this.props.fetchCredentials();
+    this.props.fetchCredentials(() => this.setState({ loading: false}));
   }
 
   render() {
+    const { loading } = this.state;
+
+    if(loading) {
+      return null;
+    }
     return (
       <div className = "App">
         <Router>

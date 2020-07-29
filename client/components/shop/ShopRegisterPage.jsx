@@ -38,6 +38,10 @@ class ShopRegisterPage extends React.Component {
     this.handleRecaptcha = this.handleRecaptcha.bind(this);
     this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
   }
+  
+  componentDidMount() {
+    !this.props.isFetching && !this.props.username ? window.location.href='/login' : console.log('Logged in');
+  }
 
     handleRecaptcha(token) {
       const rpkg = {response: token}
