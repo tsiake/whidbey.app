@@ -30,6 +30,8 @@ class ShopRegisterPage extends React.Component {
     this.handleDescChange = this.handleDescChange.bind(this);
     this.handleStreetChange = this.handleStreetChange.bind(this);
     this.handleZipChange = this.handleZipChange.bind(this);
+    this.handleWebChange = this.handleWebChange.bind(this);
+    this.handlePhoneChange = this.handlePhoneChange.bind(this);
     this.handleShopLinkChange = this.handleShopLinkChange.bind(this);
     this.handleShopTypeChange = this.handleShopTypeChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -84,12 +86,12 @@ class ShopRegisterPage extends React.Component {
     this.setState({inputShopType: evt.target.value});
   }
 
-  handleShopWebChange (evt) {
+  handleWebChange (evt) {
     this.setState({inputShopWeb: evt.target.value});
     this.setState({inputShopWeb: evt.target.value.replace(/\s/g, '').replace(/["']/g, "").toLowerCase()});
   }
 
-  handleShopPhoneChange (evt) {
+  handlePhoneChange (evt) {
     this.setState({inputShopPhone: evt.target.value.replace(/[^0-9]+/g,"")});
   }
 
@@ -196,7 +198,7 @@ class ShopRegisterPage extends React.Component {
                 <h4>{ this.state.inputShopLink ? "https://whidbey.io/shops/" + this.state.inputShopLink : "" }</h4>
                 <p>{ this.state.inputStreet } </p>
                 <p>{ this.state.inputCity + " " + this.state.inputZip }</p>
-                <h4>{this.state.inputDesc ? "About " + this.state.inputDesc : ""}</h4>
+                <h4>{this.state.inputDesc ? "About " + this.state.inputShopName : ""}</h4>
                 <p>{this.state.inputDesc}</p>
                 <p><small>{this.state.inputPhone ? "Phone: " + this.state.inputPhone: ""}</small></p>
                 <p><small>{this.state.inputWeb ? "Website: " + this.state.inputPhone : ""}</small></p>
