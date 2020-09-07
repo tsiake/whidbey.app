@@ -152,11 +152,6 @@ class ShopRegisterPage extends React.Component {
               </Row>
               <Row>
                 <Col>
-                  <h3>Shop Description</h3>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
                   <h3>Shop Website Link (optional)</h3>
                 </Col>
               </Row>
@@ -181,6 +176,11 @@ class ShopRegisterPage extends React.Component {
               </Row>
               <Row>
                 <Col>
+                  <h3>Shop Description</h3>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
                   <Form.Group controlId="inpDesc">
                     <Form.Control type="text" placeholder="Description" onChange={this.handleDescChange} value={this.state.inputDesc}/>
                   </Form.Group>
@@ -198,6 +198,8 @@ class ShopRegisterPage extends React.Component {
                 <p>{ this.state.inputCity + " " + this.state.inputZip }</p>
                 <h4>{this.state.inputDesc ? "About " + this.state.inputDesc : ""}</h4>
                 <p>{this.state.inputDesc}</p>
+                <p><small>{this.state.inputPhone ? "Phone: " + this.state.inputPhone: ""}</small></p>
+                <p><small>{this.state.inputWeb ? "Website: " + this.state.inputPhone : ""}</small></p>
               </Card>
 
               <div className="gap"></div>
