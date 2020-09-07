@@ -8,6 +8,8 @@ var shopSchema = mongoose.Schema({
   city: String,
   street: String,
   zip: String,
+  phone: String,
+  web: String,
   owner: String, // username of owner
   shop_link: String
 // choosing to associate items with the shop id, shop itself will not have knowledge

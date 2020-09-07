@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Recaptcha from 'react-recaptcha';
-import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
+import { Button, Row, Col, Form, Card, FormGroup, FormControl, Checkbox, Radio } from 'react-bootstrap';
 
 import { registerShop, verifyMyCaptcha } from '../.././redux/actions/actions';
 
@@ -19,6 +15,9 @@ class ShopRegisterPage extends React.Component {
       inputStreet: '',
       inputZip: '',
       inputShopLink: '',
+      inputShopType: '',
+      inputShopWeb: '',
+      inputShopPhone: '',
       inputDesc: '',
       username: '',
       captcha: false,
@@ -32,6 +31,7 @@ class ShopRegisterPage extends React.Component {
     this.handleStreetChange = this.handleStreetChange.bind(this);
     this.handleZipChange = this.handleZipChange.bind(this);
     this.handleShopLinkChange = this.handleShopLinkChange.bind(this);
+    this.handleShopTypeChange = this.handleShopTypeChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.showTempMessage = this.showTempMessage.bind(this);
 
@@ -57,7 +57,7 @@ class ShopRegisterPage extends React.Component {
 
   handleShopNameChange (evt) {
     this.setState({inputShopName: evt.target.value});
-    this.setState({inputShopLink: evt.target.value.replace(/\s/g, '').toLowerCase()});
+    this.setState({inputShopLink: evt.target.value.replace(/\s/g, '').replace(/["']/g, "").toLowerCase()});
   }
 
   handleDescChange (evt) {
@@ -80,10 +80,23 @@ class ShopRegisterPage extends React.Component {
     this.setState({inputShopLink: evt.target.value});
   }
 
+  handleShopTypeChange (evt) {
+    this.setState({inputShopType: evt.target.value});
+  }
+
+  handleShopWebChange (evt) {
+    this.setState({inputShopWeb: evt.target.value});
+    this.setState({inputShopWeb: evt.target.value.replace(/\s/g, '').replace(/["']/g, "").toLowerCase()});
+  }
+
+  handleShopPhoneChange (evt) {
+    this.setState({inputShopPhone: evt.target.value.replace(/[^0-9]+/g,"")});
+  }
+
   handleSubmit (evt) {
     evt.preventDefault()
     if(this.state.captcha == true) {
-      const newShop = {owner: this.props.username, shop_name: this.state.inputShopName, shop_link: this.state.inputShopLink, city: this.state.inputCity, street: this.state.inputStreet, zip: this.state.zip};
+      const newShop = {owner: this.props.username, shop_name: this.state.inputShopName, shop_link: this.state.inputShopLink, city: this.state.inputCity, street: this.state.inputStreet, zip: this.state.inputZip, phone: this.state.inputPhone, web: this.state.inputWeb};
       this.props.dispatch(registerShop(newShop));
       this.setState({captcha: false})
     }
@@ -109,15 +122,14 @@ class ShopRegisterPage extends React.Component {
               </Row>
               <Row>
                 <Col>
-                  <div className="form-group inpfield">
-                    <input type="email" className="form-control" id="inpShopName" placeholder="Shop Name" onChange={this.handleShopNameChange} value={this.state.inputShopName}/>
-                  </div>
-
+                  <Form.Group controlId="inpShopName">
+                    <Form.Control type="text" placeholder="Shop Name" onChange={this.handleShopNameChange} value={this.state.inputShopName}/>
+                  </Form.Group>
                 </Col>
                 <Col>
-                  <div className="form-group inpfield">
-                    <input type="text" className="form-control" id="inpShopLink" placeholder="Shop Link" onChange={this.handleShopLinkChange} value={this.state.inputShopLink}/>
-                  </div>
+                  <Form.Group controlId="inpShopLink">
+                    <Form.Control type="text" placeholder="Shop Link" onChange={this.handleShopLinkChange} value={this.state.inputShopLink}/>
+                  </Form.Group>
                 </Col>
               </Row>
               <Row>
@@ -127,15 +139,15 @@ class ShopRegisterPage extends React.Component {
               </Row>
               <Row>
                 <Col>
-                  <div className="form-group inpfield">
-                    <input type="text" className="form-control" id="inpStreet" placeholder="Street" onChange={this.handleStreetChange} value={this.state.inputStreet}/>
-                  </div>
-                  <div className="form-group inpfield">
-                    <input type="text" className="form-control" id="inpCity" placeholder="City" onChange={this.handleCityChange} value={this.state.inputCity}/>
-                  </div>
-                  <div className="form-group inpfield">
-                    <input type="text" className="form-control" id="inpZip" placeholder="Zip Code" onChange={this.handleZipChange} value={this.state.inputZip}/>
-                  </div>
+                  <Form.Group controlId="inpStreet">
+                    <Form.Control type="text" placeholder="Street" onChange={this.handleStreetChange} value={this.state.inputStreet}/>
+                  </Form.Group>
+                  <Form.Group controlId="inpCity">
+                    <Form.Control type="text" placeholder="City" onChange={this.handleCityChange} value={this.state.inputCity}/>
+                  </Form.Group>
+                  <Form.Group controlId="inpZip">
+                    <Form.Control type="text" placeholder="Zip Code" onChange={this.handleZipChange} value={this.state.inputZip}/>
+                  </Form.Group>
                 </Col>
               </Row>
               <Row>
@@ -145,9 +157,33 @@ class ShopRegisterPage extends React.Component {
               </Row>
               <Row>
                 <Col>
-                  <div className="form-group inpfield">
-                    <input type="textarea" className="form-control" id="inpDesc" placeholder="Description" onChange={this.handleDescChange} value={this.state.inputDesc}/>
-                  </div>
+                  <h3>Shop Website Link (optional)</h3>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Form.Group controlId="inpWeb">
+                    <Form.Control type="text" placeholder="" onChange={this.handleWebChange} value={this.state.inputWeb}/>
+                  </Form.Group>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <h3>Shop Phone Number (optional)</h3>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Form.Group controlId="inpPhone">
+                    <Form.Control type="text" placeholder="" onChange={this.handlePhoneChange} value={this.state.inputPhone}/>
+                  </Form.Group>
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+                  <Form.Group controlId="inpDesc">
+                    <Form.Control type="text" placeholder="Description" onChange={this.handleDescChange} value={this.state.inputDesc}/>
+                  </Form.Group>
                 </Col>
               </Row>
               <Row>

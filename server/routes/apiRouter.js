@@ -35,6 +35,8 @@ router.post('/register-shop', ((req, res) => {
     shop.city = req.body.city;
     shop.street = req.body.street;
     shop.zip = req.body.zip;
+    shop.phone = req.body.phone;
+    shop.web = req.body.web;
     shop.owner = req.body.owner;
     shop.save();
     user.sendShopRegistrationEmail(req.body.owner, shop_link);
