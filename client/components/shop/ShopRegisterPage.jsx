@@ -16,8 +16,8 @@ class ShopRegisterPage extends React.Component {
       inputZip: '',
       inputShopLink: '',
       inputShopType: '',
-      inputShopWeb: '',
-      inputShopPhone: '',
+      inputWeb: '',
+      inputPhone: '',
       inputDesc: '',
       username: '',
       captcha: false,
@@ -87,12 +87,12 @@ class ShopRegisterPage extends React.Component {
   }
 
   handleWebChange (evt) {
-    this.setState({inputShopWeb: evt.target.value});
-    this.setState({inputShopWeb: evt.target.value.replace(/\s/g, '').replace(/["']/g, "").toLowerCase()});
+    this.setState({inputWeb: evt.target.value});
+    this.setState({inputWeb: evt.target.value.replace(/\s/g, '').replace(/["']/g, "").toLowerCase()});
   }
 
   handlePhoneChange (evt) {
-    this.setState({inputShopPhone: evt.target.value.replace(/[^0-9]+/g,"")});
+    this.setState({inputPhone: evt.target.value.replace(/[^0-9]+/g,"")});
   }
 
   handleSubmit (evt) {
@@ -198,10 +198,9 @@ class ShopRegisterPage extends React.Component {
                 <h4>{ this.state.inputShopLink ? "https://whidbey.io/shops/" + this.state.inputShopLink : "" }</h4>
                 <p>{ this.state.inputStreet } </p>
                 <p>{ this.state.inputCity + " " + this.state.inputZip }</p>
+                <p><small>{this.state.inputPhone && this.state.inputWeb ? this.state.inputPhone + "  -  "  + this.state.inputWeb : this.state.inputPhone ? this.inputPhone : this.state.inputWeb ? this.state.inputWeb : ""}</small></p>
                 <h4>{this.state.inputDesc ? "About " + this.state.inputShopName : ""}</h4>
                 <p>{this.state.inputDesc}</p>
-                <p><small>{this.state.inputPhone ? "Phone: " + this.state.inputPhone: ""}</small></p>
-                <p><small>{this.state.inputWeb ? "Website: " + this.state.inputPhone : ""}</small></p>
               </Card>
 
               <div className="gap"></div>

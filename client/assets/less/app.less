@@ -1,133 +1,172 @@
-@bg-color-primary: #48639c; // queen blue 
-@bg-color-primary-bk: #e98074; // brighter
-@bg-color-secondary: #f5f5f5; // bland bg
-@bg-color-secondary-bk: #f5f5f5; // bland bg darker
-@main-text-color: #373d3f; // raven 
+@om: #bc8da7; // opera mauve
+@nero: #222222; // nero
+@bg: #ffffff; // white
 
-@font-face { font-family: rale-med; src: url('../assets/font/rale/static/Raleway-Medium.ttf'); }
-@font-face { font-family: rale-reg; src: url('../assets/font/rale/static/Raleway-Regular.ttf'); }
-@font-face { font-family: rale-light; src: url('../assets/font/rale/static/Raleway-Light.ttf'); }
-@font-face { font-family: rale-eb; src: url('../assets/font/rale/static/Raleway-ExtraBold.ttf'); }
-@font-face { font-family: rale-b; src: url('../assets/font/rale/static/Raleway-Bold.ttf'); }
-@font-face { font-family: rale-sb; src: url('../assets/font/rale/static/Raleway-SemiBold.ttf'); }
-@font-face { font-family: mo; src: url('../assets/font/mo/MedulaOne-Regular.ttf'); }
+@font-face { font-family: poppins-med; src: url('../assets/font/poppins/Poppins-Medium.ttf'); }
+@font-face { font-family: poppins-reg; src: url('../assets/font/poppins/Poppins-Regular.ttf'); }
+@font-face { font-family: poppins-light; src: url('../assets/font/poppins/Poppins-Light.ttf'); }
+@font-face { font-family: poppins-eb; src: url('../assets/font/poppins/Poppins-ExtraBold.ttf'); }
+@font-face { font-family: poppins-b; src: url('../assets/font/poppins/Poppins-Bold.ttf'); }
+@font-face { font-family: poppins-sb; src: url('../assets/font/poppins/Poppins-SemiBold.ttf'); }
 
-@font-face { font-family: go; src: url('../assets/font/mo/MedulaOne-Regular.ttf'); }
-@font-face { font-family: lato-light; src: url('../assets/font/lato/Lato-Light.ttf'); }
-@font-face { font-family: lato-reg; src: url('../assets/font/lato/Lato-Regular.ttf'); }
-@font-face { font-family: lato-b; src: url('../assets/font/lato/Lato-Bold.ttf'); }
-@font-face { font-family: jura-med; src: url('../assets/font/jura/static/Jura-Medium.ttf'); }
-@font-face { font-family: jura-reg; src: url('../assets/font/jura/static/Jura-Regular.ttf'); }
-@font-face { font-family: jura-sb; src: url('../assets/font/jura/static/Jura-SemiBold.ttf'); }
-
-h1 {
-    color: @bg-color-primary;
+body {
+    justify-content: center;
+    // background-image:url(./assets/img/bg4k.jpg);
+    // background-size:100%;
 }
+
+/*
+@media(max-width:1920px) {
+  body {
+    background-image:url('../img/bg1920.jpg');
+  }
+}
+
+@media(max-width:1280px) {
+  body {
+    background-image:url('../img/bg1280.jpg');
+  }
+}
+*/
 
 #root {
-    color: @main-text-color;
-    background-color: @bg-color-secondary;
+    color: @nero;
     height: 150%;
-    font-family: jura-reg;
+    font-family: poppins-reg;
 }
 
-.controlinput {
-    text-align: center;
-    padding: 5%;
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 5%;
+    line-height: 5%;
+    display: flex;
+    align-items:center;
 }
 
-.header_image {
-    text-align: center;
-    padding: 2%;
+.navsearch {
+    float:none;
+    width: 50%;
 }
 
-.header_link {
-    color: @main-text-color;
-    font-family: jura-sb;    
-    font-size: 24px;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top:25px;
-    padding-bottom:25px;
-    justify-content: space-between;
-}
-
-.header_link:hover, a:hover {
-    text-decoration: underline @bg-color-primary;
-    color: @bg-color-primary;
-}
-
-.reg_link {
-    color: @main-text-color;
-    padding-top:10px;
-    padding-bottom:10px;
-    font-family: jura-sb;    
-}
-
-.reg_link:hover, a:hover {
-    text-decoration: underline @bg-color-primary;
-}
-
-.navbar-light .navbar-brand {
-    padding-left: 20px;
-}
-
-.register_page, .accConfirmationPage, .login_page, .shop_register_page {
-    padding-left: 35%;
-    padding-right: 35%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-    text-align: center;
-}
-
-.recaptcha {
-    text-align: center;
-}
-
-.recaptcha-in {
+ul#navbar li {
+    float:right;
     display: inline-block;
+    color: @nero;
+    padding: 40px;
+    text-decoration: none;
 }
 
-.gap {
-    padding-top: 10px;
+ul#navbar li a {
+    text-decoration: none;
+    color: @nero;
 }
 
-.whidbeyButton.btn.btn-primary {
-    border: 1px solid @main-text-color;
-    background-color: @bg-color-primary;
-    color: @bg-color-secondary
+ul#navbar li a:hover {
+    text-decoration: none;
+    color: @nero;
 }
 
-.whidbeyButton.btn.btn-primary:hover {
-    border: 1px solid @main-text-color;
-    background-color: @bg-color-secondary;
-    color: @bg-color-primary;
+.web_content {
+  padding-top:2%;
+  padding-right:15%;
+  padding-left:15%;
+}
+
+.reg_link, .reg_link:hover {
+    color:@om;
 }
 
 #footer {
-  position: absolute;
-  text-align: center;
-  right:0;bottom:0;left:0;
-  border-top: 1px solid @main-text-color;
+    position: fixed;
+    height: 5%;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+    padding: 20px; 
 }
 
-html {
-  min-height: 100%;
-  min-height: 100vh;
-  position: relative;
+.scrollable-dropdown{
+    height: auto;
+    max-height:320px;
+    overflow-x: hidden;
 }
 
-.header_button {
-  padding-left: 10px;
-  padding-right: 10px;
+.input-group.md-form.form-sm.form-1 input {
+  border: 1px solid #bdbdbd;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
 }
 
-.rb, .rt{
-  border-top-left-radius:10px;
-  border-bottom-left-radius:10px;
+.wb {
+  border-color:@om;
+  color: @bg;
+  background-color: @om;
+  border: 1px solid @om;
+  padding:5px;
+  padding-left:10px;
+  padding-right:10px;
+  text-align:center;
+  text-decoration:none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius:3px;
 }
 
-.lb, .rt{
-  border-top-right-radius:10px;
-  border-bottom-right-radius:10px;
+.wb:hover, .wb:active, .wb:focus {
+  outline: none !important;
+  outline-offset: none !important;
+  background-color: @nero;
+  border-color:@bg;
+  color: @bg;
+  transition-duration:2s;
+}
+
+.navbar_full {
+  background-color:@bg;
+  color:@om;
+}
+
+form{
+ margin:0px; padding:0px; display:inline;
+}
+
+.nav_search.form-control:focus, textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+    outline: none !important;
+    border-color: @om;
+    background-color:@bg;
+    color: @nero;
+    box-shadow: 0 0 10px @om;
+}
+
+.nav_search {
+  width:80% !important;
+}
+
+.link, .link:hover, a, a:hover {
+  color: @nero;
+}
+
+.btn:active, .btn:focus {
+    outline: none !important;
+    outline-offset: none !important;
+    background-color:@bg;
+    border-color:@om;
+    color:@om;
+}
+
+input[type="text"]:focus {
+    border:1px solid @om !important;
+    -webkit-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3) inset !important;
+    -moz-box-shadow:0 1px 2px rgba(0, 0, 0, 0.3) inset !important;
+    box-shadow:0 1px 2px rgba(0, 0, 0, 0.3) inset !important;
+    outline: none !important;
+}
+
+.form-inline {
+  width:100% !important;
 }

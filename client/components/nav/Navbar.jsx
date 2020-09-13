@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Button, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { CSSTransition } from 'react-transition-group';
+import { Button, Nav, Navbar, NavDropdown, Form, FormControl } from 'react-bootstrap';
 
 // will need to get props from App passed in, then depending on whether logged in, show login/register or profile/logout
 
@@ -10,38 +10,46 @@ class NavBar extends React.Component {
   constructor() {
     super();
       this.state = {
-          Register: <Link to="/register" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Register</div></Link>,
-          Login: <Link to="/login" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link lb">Log in</div></Link>,
-          LoggedIn: <Link to='/profile' style={{color:'#008457', textDecoration: 'none'}}><div className="header_link ">Settings</div></Link>,
-          Logout: <Link onClick={(e) => this.props.logoutUser()} style={{color:'#008457', textDecoration: 'none'}}><div className="header_link lb">Logout</div></Link>
-
+          input: '',
+          Register: <Nav.Link href="/register" className="link">Register</Nav.Link>,
+          Login: <Nav.Link href="/login" className="link">Log in</Nav.Link>,
+          LoggedIn: <Nav.Link href='/profile' className="link">Settings</Nav.Link>,
+          Logout: <Nav.Link className="link" onClick={(e) => this.props.logoutUser()}>Logout</Nav.Link>
       }
+      this.handleInputChange = this.handleInputChange.bind(this);
   } 
 
   componentDidMount() {
     this.props.fetchCredentials();
   }
 
+  handleInputChange (evt) {
+    this.setState({input: evt.target.value});
+  }
+
   render() {
     return(
-      <Navbar collapseOnSelect expand="lg" style={{backgroundColor:'#eae7dc', borderBottom: '1px solid #373d3f'}}>
-        <Navbar.Brand href="/">
-          <img src="../.././assets/img/2-edited.png" alt="whidbey.io" width="150" height="100" />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mr-auto">
-          </Nav>
-          <Nav>
-            <Link to="/browse/items" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link rb">Browse</div></Link> 
-            <Link to="/browse/shops" style={{color:'#008457', textDecoration: 'none'}}><div className="header_link">Shops</div></Link>
-              { this.props.username ? this.state.LoggedIn : '' }
-              { this.props.username ? '' : this.state.Register }
-              { this.props.username ? '' : this.state.Login }
-              { this.props.username ? this.state.Logout : '' }
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+<Navbar expand="lg" className="navbar_full">
+  <Navbar.Brand href="/" style={{fontFamily: 'Poppins-Light', backgroundColor:'#ffffff', color: '#222222'}}>whidbey.io</Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Collapse id="basic-navbar-nav">
+      <NavDropdown title="All Shops" id="basic-nav-dropdown">
+        <NavDropdown.Item>Art</NavDropdown.Item>
+        <NavDropdown.Item>Delivery</NavDropdown.Item>
+        <NavDropdown.Item>Fruits</NavDropdown.Item>
+      </NavDropdown>
+    <Form inline className="inline_nav">
+      <FormControl type="text" placeholder="Search" className="mr-sm-2 nav_search" /> 
+      <div className="wb">Search</div>
+    </Form>
+    { this.props.username ? this.state.LoggedIn : '' }
+    { this.props.username ? this.state.Logout : '' }
+
+    { this.props.username ? '' : this.state.Register }
+    { this.props.username ? '' : this.state.Login }
+  </Navbar.Collapse>
+</Navbar>
+
     );
       
   }

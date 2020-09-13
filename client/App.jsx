@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router
 import { Redirect } from 'react-router';
 
 // styles
-import './assets/css/app.css';
 import './assets/bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/app.css';
 
 // components
 import HomeContainer from './components/home/HomeContainer.jsx';
@@ -34,8 +34,8 @@ class App extends React.Component {
     return (
       <div className = "App">
         <Router>
-          <div className = "main_content">
-            <NavbarContainer />
+          <NavbarContainer />
+          <div className = "web_content">
             <Switch>
               <Route exact path="/" component = { HomeContainer } />
               <Route exact path="/register" component = { RegisterContainer } />
@@ -44,8 +44,8 @@ class App extends React.Component {
               <Route exact path="/discord"> <Redirect to="https://discord.gg/BukGnYw" /> </Route>
               <Route path="/confirm/:user_id" component = { accConfirmContainer } />
             </Switch>
-            <Footer />
           </div>
+          <Footer />
         </Router>
       </div>
     );
