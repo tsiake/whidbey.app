@@ -83,12 +83,10 @@ ul#navbar li a:hover {
 }
 #footer {
   position: fixed;
-  height: 5%;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
-  padding: 20px;
+  bottom: 0;
+  left: 0;
+  text-align: left;
+  padding: 20%;
 }
 .scrollable-dropdown {
   height: auto;
@@ -101,10 +99,6 @@ ul#navbar li a:hover {
   border-bottom-right-radius: 0.25rem;
 }
 .wb {
-  border-color: #bc8da7;
-  color: #ffffff;
-  background-color: #bc8da7;
-  border: 1px solid #bc8da7;
   padding: 5px;
   padding-left: 10px;
   padding-right: 10px;
@@ -114,15 +108,19 @@ ul#navbar li a:hover {
   font-size: 16px;
   cursor: pointer;
   border-radius: 3px;
+  border: 1px solid #bc8da7;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #222222;
 }
 .wb:hover,
 .wb:active,
 .wb:focus {
   outline: none !important;
   outline-offset: none !important;
-  background-color: #222222;
-  border-color: #ffffff;
-  color: #ffffff;
+  border-color: #bc8da7;
+  color: #222222;
+  background-color: #bc8da7;
   transition-duration: 2s;
 }
 .navbar_full {

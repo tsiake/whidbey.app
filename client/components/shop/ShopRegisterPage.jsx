@@ -101,6 +101,7 @@ class ShopRegisterPage extends React.Component {
       const newShop = {owner: this.props.username, shop_name: this.state.inputShopName, shop_link: this.state.inputShopLink, city: this.state.inputCity, street: this.state.inputStreet, zip: this.state.inputZip, phone: this.state.inputPhone, web: this.state.inputWeb};
       this.props.dispatch(registerShop(newShop));
       this.setState({captcha: false})
+      this.showTempMessage();
     }
   }
 

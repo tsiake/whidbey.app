@@ -5,7 +5,7 @@ class Footer extends React.Component {
 	render () {
 		return (
 			<div id="footer">
-        <Link to="/shop-registration"><div className="reg_link">Are you a shop owner on Whidbey Island?</div></Link>
+        <Link to="/shop-registration"><div className="link">Are you a shop owner on Whidbey Island?</div></Link>
 			</div>
 		)
 	}

@@ -1,5 +1,5 @@
 import { normalize } from 'normalizr';
-import { verifyCaptcha, fetchUsername, loginAPI, registerAPI, logoutAPI, fetchShops, fetchMyProfile, editProfile, confirmAccount, fetchNotifications, createNotification, sendMessage, fetchMessages } from '../.././api/index';
+import { verifyCaptcha, fetchUsername, loginAPI, registerAPI, logoutAPI, fetchShops, fetchMyProfile, editProfile, confirmAccount, fetchNotifications, createNotification, sendMessage, fetchMessages, registerShopAPI } from '../.././api/index';
 import { getIsFetching, getMessage } from '../reducers/reducer';
 
 export const verifyMyCaptcha = (captchaObject) => (dispatch, getState) => {
