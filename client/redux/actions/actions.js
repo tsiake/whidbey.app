@@ -1,6 +1,29 @@
 import { normalize } from 'normalizr';
-import { verifyCaptcha, fetchUsername, loginAPI, registerAPI, logoutAPI, fetchShops, fetchMyProfile, editProfile, confirmAccount, fetchNotifications, createNotification, sendMessage, fetchMessages, registerShopAPI } from '../.././api/index';
+import { getShops, verifyCaptcha, fetchUsername, loginAPI, registerAPI, logoutAPI, fetchShops, fetchMyProfile, editProfile, confirmAccount, fetchNotifications, createNotification, sendMessage, fetchMessages, registerShopAPI } from '../.././api/index';
 import { getIsFetching, getMessage } from '../reducers/reducer';
+
+export const getMyShops = (shopType) => (dispatch, getState) => {
+
+  dispatch({ type: 'NETWORK_REQUEST', isFetching: true });
+
+  return getShops(shopType).then(
+    response => {
+      dispatch({
+        type: 'GET_SHOPS_SUCCESS',
+        isFetching: false,
+        shops: response.shops
+      });
+    },
+    error => {
+      dispatch({
+        type: 'API_FAILURE',
+        isFetching: false,
+        message: response.message,
+        success: false
+      });
+    }
+  );
+};
 
 export const verifyMyCaptcha = (captchaObject) => (dispatch, getState) => {
 

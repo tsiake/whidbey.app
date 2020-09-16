@@ -1,4 +1,17 @@
-// verify captcha api
+// post shops api
+export const getShops = (shopType) => {
+  const baseUrl = '/api/shops';
+  return fetch(baseUrl, {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Cache': 'no-cache'
+    },
+    credentials: 'include',
+    body: JSON.stringify(shopType)
+  }).then(res => res.json())
+}
 export const verifyCaptcha = (captchaObject) => {
   const baseUrl = '/api/captcha';
   return fetch(baseUrl, {

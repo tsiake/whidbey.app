@@ -104,6 +104,11 @@ const apiReducer = (state = [], action) => {
         message: action.message,
         myMessagesArray: action.myMessagesArray,
       })
+    case 'GET_SHOPS_SUCCESS':
+      return Object.assign({}, state, {
+        isFetching: action.isFetching,
+        shops: action.shops
+      })
     default: 
       return state
   }

@@ -2,12 +2,12 @@
 @nero: #222222; // nero
 @bg: #ffffff; // white
 
-@font-face { font-family: poppins-med; src: url('../assets/font/poppins/Poppins-Medium.ttf'); }
-@font-face { font-family: poppins-reg; src: url('../assets/font/poppins/Poppins-Regular.ttf'); }
-@font-face { font-family: poppins-light; src: url('../assets/font/poppins/Poppins-Light.ttf'); }
-@font-face { font-family: poppins-eb; src: url('../assets/font/poppins/Poppins-ExtraBold.ttf'); }
-@font-face { font-family: poppins-b; src: url('../assets/font/poppins/Poppins-Bold.ttf'); }
-@font-face { font-family: poppins-sb; src: url('../assets/font/poppins/Poppins-SemiBold.ttf'); }
+@font-face { font-family: poppins-med; src: url('/assets/font/poppins/Poppins-Medium.ttf'); }
+@font-face { font-family: poppins-reg; src: url('/assets/font/poppins/Poppins-Regular.ttf'); }
+@font-face { font-family: poppins-light; src: url('/assets/font/poppins/Poppins-Light.ttf'); }
+@font-face { font-family: poppins-eb; src: url('/assets/font/poppins/Poppins-ExtraBold.ttf'); }
+@font-face { font-family: poppins-b; src: url('/assets/font/poppins/Poppins-Bold.ttf'); }
+@font-face { font-family: poppins-sb; src: url('/assets/font/poppins/Poppins-SemiBold.ttf'); }
 
 body {
     justify-content: center;
@@ -146,6 +146,7 @@ form{
 }
 
 .link, .link:hover, a, a:hover {
+  font-size:20px;
   color: @nero;
 }
 
@@ -166,5 +167,34 @@ input[type="text"]:focus {
 }
 
 .form-inline {
-  width:100% !important;
+  width:75% !important;
+}
+
+.dropdown-toggle::after {
+  border: none;
+}
+
+.dropdown-menu.show {
+  margin-left:10%;
+}
+
+.show.dropdown.nav-item, .dropdown.nav-item {
+  text-align:right;
+  width:20%;
+}
+
+.basic-nav-dropdown {
+  margin-left:25%;
+}
+
+.dropdown-item {
+  font-size:20px;
+}
+
+.title-dropdown {
+  font-size:20px;
+}
+
+.mr-sm-2.nav_search.form-control {
+  height:50px;
 }

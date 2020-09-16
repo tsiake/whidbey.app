@@ -145,6 +145,23 @@ router.post('/register', ((req, res) => {
   }
 }));
 
+router.post('/shops', ((req, res) => {
+  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
+  var Shop = require('/etc/whidbey.io/server/models/shop_model.js');
+
+  var searchedShops;
+
+  if(req.body.shopType) {
+    searchedShops = Shop.find({type: req.body.shopType});
+  } else {
+    searchedShops = Shop.find({});
+  }
+
+  searchedShops.then((x, err) => {
+    x.length > 0 ? res.send({shops: x}) : res.send({message: 'No shops found'}); 
+  });
+}));
+
 // session api - grab username if logged into session
 router.get('/session', ((req, res) => {
   console.log('sending session');
