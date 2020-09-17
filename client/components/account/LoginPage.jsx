@@ -57,7 +57,7 @@ class LoginPage extends React.Component {
                 </div>
 
                 <div className="gap"></div>
-                <Button className="whidbeyButton" onClick={this.handleSubmit}>Log in</Button>
+                <div className="wb" onClick={this.handleSubmit}>Log in</div>
             </form>
 
             { this.state.canShow ? this.props.message : '' }

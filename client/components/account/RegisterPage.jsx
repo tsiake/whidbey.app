@@ -83,7 +83,7 @@ class RegisterPage extends React.Component {
                     </div>
                 </div>
                 <div className="gap"></div>
-                <Button className="whidbeyButton" onClick={this.handleSubmit}>Register Account</Button>
+                <div className="wb" onClick={this.handleSubmit}>Register Account</div>
             </form>
 
 
