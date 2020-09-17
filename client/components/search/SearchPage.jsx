@@ -13,8 +13,13 @@ class SearchPage extends React.Component {
   }
 
 	componentDidMount() {
-    this.props.dispatch(getMyShops({}));
-    console.log(this.props.match.params.search_type);
+    if(this.props.match.params.search_type == "shops") {
+      this.props.dispatch(getMyShops({}));
+    } else if(this.props.match.params.search_type == "items") {
+      console.log("add item search");
+    } else {
+      this.props.history.push('/');
+    }
   }
 
 	render() {
