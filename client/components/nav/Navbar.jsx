@@ -61,12 +61,12 @@ class NavBar extends React.Component {
         title={
           <div className="title-dropdown">
             <img src={"/assets/icons/" + this.state.whichKey + ".png"} alt="" width="50" height="50" />
+            {'\u00A0'}
             {this.state.inputOption}
           </div> 
           }
           id="basic-nav-dropdown" onSelect={this.handleInputChange}>
       { this.state.inputOptions.map((opt, i) => (
-          opt == "Delivery" ? <NavDropdown.Divider /> : '',
           <NavDropdown.Item key={i+1} eventKey={i+1} value={opt}><img src={"/assets/icons/" + i + ".png"} alt="" width="50" height="50" /> { opt } </NavDropdown.Item>
       ))} 
       </NavDropdown>

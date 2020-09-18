@@ -115,6 +115,9 @@ ul#navbar li a:hover {
   border-color: #ffffff;
   color: #222222;
 }
+.dropdown-item:hover,
+.dropdown-item:active,
+.dropdown-item:focus,
 .page-link:hover,
 .page-link:active,
 .page-link:focus,
@@ -175,17 +178,20 @@ input[type="text"]:focus {
 }
 .form-inline {
   width: 75% !important;
+  flex-flow: inherit !important;
 }
 .dropdown-toggle::after {
   border: none;
 }
 .dropdown-menu.show {
-  margin-left: 10%;
+  margin-left: -100px !important;
+  margin-top: -75px !important;
+  width: 100vw;
 }
 .show.dropdown.nav-item,
 .dropdown.nav-item {
   text-align: right;
-  width: 20%;
+  width: 50%;
 }
 .basic-nav-dropdown {
   margin-left: 25%;
