@@ -14,18 +14,20 @@ class NavBar extends React.Component {
           searchType: "shops",
           itemType: "",
           inputOptions: [
-            "All Shops", "Art", "Books", "Food", "Furnishings", "Gardening", "Gift Shops", "Handmade Goods", "Imported Goods", "Jewelry",
+            "All Shops", "Appliances", "Art", "Books", "Food", "Furnishings", "Gardening", "Gift Shops", "Handmade Goods", "Imported Goods", "Jewelry", "Tech", "Delivery", "Dining"
           ],
           optionIcons: [
             <img src="/assets/icons/0.png" alt="All" width="50" height="50"/>,
-            <img />,
-            <img src="/assets/icons/Books.png" alt="Books" width="50" height="50" />,
-            <img src="/assets/icons/Fresh-grocery-bread.png" alt="Food" width="50" height="50" />,
-            <img src="/assets/icons/Furnishings.png" alt="Furnishings" width="50" height="50" />,
-            <img src="/assets/icons/Garden.png" alt="Gardening" width="50" height="50" />,
-            <img src="/assets/icons/Handmade.png" alt="Handmade" width="50" height="50" />,
-            <img src="/assets/icons/Imported.png" alt="Imported" width="50" height="50" />,
-            <img src="/assets/icons/Jewelry.png" alt="Jewelry" width="50" height="50" />,
+            <img src="/assets/icons/1.png" alt="Appliances" width="50" height="50"/>,
+            <img src="/assets/icons/2.png" alt="Art" width="50" height="50"/>,
+            <img src="/assets/icons/3.png" alt="Books" width="50" height="50" />,
+            <img src="/assets/icons/4.png" alt="Food" width="50" height="50" />,
+            <img src="/assets/icons/5.png" alt="Furnishings" width="50" height="50" />,
+            <img src="/assets/icons/6.png" alt="Gardening" width="50" height="50" />,
+            <img src="/assets/icons/7.png" alt="Handmade" width="50" height="50" />,
+            <img src="/assets/icons/8.png" alt="Imported" width="50" height="50" />,
+            <img src="/assets/icons/9.png" alt="Jewelry" width="50" height="50" />,
+            <img src="/assets/icons/10.png" alt="Tech" width="50" height="50" />
           ],
 
           inputOption: "All Shops",
@@ -64,19 +66,9 @@ class NavBar extends React.Component {
           }
           id="basic-nav-dropdown" onSelect={this.handleInputChange}>
       { this.state.inputOptions.map((opt, i) => (
+          opt == "Delivery" ? <NavDropdown.Divider /> : '',
           <NavDropdown.Item key={i+1} eventKey={i+1} value={opt}><img src={"/assets/icons/" + i + ".png"} alt="" width="50" height="50" /> { opt } </NavDropdown.Item>
       ))} 
-        <NavDropdown.Divider />
-        <NavDropdown.Item value="Delivery">
-          <img src="/assets/icons/Delivery.png" alt="" width="50" height="50" />
-          {'\u00A0'}
-          Delivery
-        </NavDropdown.Item>
-        <NavDropdown.Item value="Dining">
-          <img src="/assets/icons/Dining.png" alt="" width="50" height="50" />
-          {'\u00A0'}
-          Dining
-        </NavDropdown.Item>
       </NavDropdown>
     <Form inline className="inline_nav">
       <FormControl type="text" className="mr-sm-2 nav_search" /> 

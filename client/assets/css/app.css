@@ -115,6 +115,9 @@ ul#navbar li a:hover {
   border-color: #ffffff;
   color: #222222;
 }
+.page-link:hover,
+.page-link:active,
+.page-link:focus,
 .wb:hover,
 .wb:active,
 .wb:focus {
@@ -197,8 +200,15 @@ input[type="text"]:focus {
   height: 50px;
 }
 .navbar-toggler-icon {
-  background-image: url(/assets/icons/Hamburger.png);
+  background-image: url(/assets/icons/Hamburger.png) !important;
 }
 .active-page {
   background-color: #bc8da7;
+}
+.page-link {
+  background-color: #bc8da7 !important;
+  color: #222222 !important;
+}
+.pagination {
+  padding-top: 10%;
 }

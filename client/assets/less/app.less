@@ -116,7 +116,7 @@ ul#navbar li a:hover {
   color: @nero;
 }
 
-.wb:hover, .wb:active, .wb:focus {
+.page-link:hover, .page-link:active, .page-link:focus, .wb:hover, .wb:active, .wb:focus {
   outline: none !important;
   outline-offset: none !important;
   border-color:@om;
@@ -201,9 +201,18 @@ input[type="text"]:focus {
 }
 
 .navbar-toggler-icon{
-  background-image: url(/assets/icons/Hamburger.png);
+  background-image: url(/assets/icons/Hamburger.png) !important;
 }
 
 .active-page {
   background-color:@om;
+}
+
+.page-link {
+  background-color: @om !important;
+  color: @nero !important;
+}
+
+.pagination {
+  padding-top: 10%;
 }
