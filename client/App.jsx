@@ -39,7 +39,7 @@ class App extends React.Component {
           <div className = "web_content">
             <Switch>
               <Route exact path="/" component = { HomeContainer } />
-              <Route exact path="/search/:search_type" component = { SearchContainer } />
+              <Route exact path="/search/:search_type/:search_category/:search_page" component = { SearchContainer } />
               <Route exact path="/register" component = { RegisterContainer } />
               <Route exact path="/shop-registration" component = { ShopRegisterContainer } />
               <Route exact path="/login" component = { LoginContainer } />

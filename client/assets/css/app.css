@@ -196,6 +196,9 @@ input[type="text"]:focus {
 .mr-sm-2.nav_search.form-control {
   height: 50px;
 }
-.navbar-light.navbar-toggler-icon {
+.navbar-toggler-icon {
   background-image: url(/assets/icons/Hamburger.png);
+}
+.active-page {
+  background-color: #bc8da7;
 }

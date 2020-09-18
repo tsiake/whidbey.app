@@ -37,7 +37,6 @@ class NavBar extends React.Component {
           noMail: <Nav.Link className="link" href="/messages"><img src="/assets/icons/Mail.png" alt="No messages" width="50" height="50" /></Nav.Link>,
       }
       this.handleInputChange = this.handleInputChange.bind(this);
-      this.handleShopSearch = this.handleShopSearch.bind(this);
   } 
 
   componentDidMount() {
@@ -50,15 +49,10 @@ class NavBar extends React.Component {
     this.setState({whichKey: eventKey-1});
   }
 
-  handleShopSearch () {
-    let path = '/search/shops';
-    this.props.history.push(path);
-  }
-
   render() {
     return(
 <Navbar expand="lg" className="navbar_full">
-  <Navbar.Brand href="/" style={{fontFamily: 'Poppins-Light', backgroundColor:'#ffffff', color: '#222222'}}>whidbey.io</Navbar.Brand>
+  <Navbar.Brand href="/" style={{fontFamily: 'Poppins-Light', backgroundColor:'#ffffff', color: '#222222'}}><img src="/assets/img/swb.png" alt="whidbey.io" width="66.25" height="50" /></Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
       <NavDropdown
@@ -86,7 +80,7 @@ class NavBar extends React.Component {
       </NavDropdown>
     <Form inline className="inline_nav">
       <FormControl type="text" className="mr-sm-2 nav_search" /> 
-      <Link to={"/search/" + this.state.searchType + "/" + this.state.inputOption} className="wb"><img src="/assets/icons/Search.png" alt="" width="50" height="50" /></Link>
+      <Link to={"/search/" + this.state.searchType + "/" + this.state.inputOption + "/1"} className="wb"><img src="/assets/icons/Search.png" alt="" width="50" height="50" /></Link>
     </Form>
     {
       this.props.username

@@ -198,46 +198,6 @@ router.post('/profile_edit', ((req, res) => {
   }
 }));
 
-// load shops
-router.get('/load_shops', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var Shop = require('/etc/whidbey.io/server/models/shop_model.js');
-
-  var shops = Profile.find({});
-  shops.then((x, err) => res.send(x));
-}));
-
-router.post('/create_notification', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js'); 
-  var Notification = require('/etc/whidbey.io/server/models/notification_model.js');
-
-  var not_obj = new Notification({});
-  not_obj.not_title = req.body.title;
-  not_obj.not_message = req.body.message;
-  not_obj.not_read = false,
-  not_obj.not_owner = req.body.sendTo;
-  not_obj.not_from = req.body.from_name;
-  not_obj.not_from_id = req.body.from_id;
-  not_obj.save();
-  res.send({success:true});
-
-}));
-
-// takes user ID to retrieve their notifications, send array of notifications back to user
-router.post('/notifications', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var User = require('/etc/whidbey.io/server/models/profile_model.js');
-  var myUser = User.find({uname: req.session.uname}).limit(1);
-  var Notification = require('/etc/whidbey.io/server/models/notification_model.js');
-
-  myUser.then((x, err) => {
-    var userNotifications = Notification.find({not_owner: x[0]._id});
-    userNotifications.then((y, err) => {
-      res.send({success: true, notifications: y});
-    });
-  });
-}));
-
 // saves a message in the db. messages are ordered into a 'message chain' by their timestamps, which are automatically created when inputted in the db.
 router.post('/send_message', ((req, res) => {
   var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
