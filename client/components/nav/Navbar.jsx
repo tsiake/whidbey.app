@@ -14,20 +14,7 @@ class NavBar extends React.Component {
           searchType: "shops",
           itemType: "",
           inputOptions: [
-            "All Shops", "Appliances", "Art", "Books", "Food", "Furnishings", "Gardening", "Gift Shops", "Handmade Goods", "Imported Goods", "Jewelry", "Tech", "Delivery", "Dining"
-          ],
-          optionIcons: [
-            <img src="/assets/icons/0.png" alt="All" width="50" height="50"/>,
-            <img src="/assets/icons/1.png" alt="Appliances" width="50" height="50"/>,
-            <img src="/assets/icons/2.png" alt="Art" width="50" height="50"/>,
-            <img src="/assets/icons/3.png" alt="Books" width="50" height="50" />,
-            <img src="/assets/icons/4.png" alt="Food" width="50" height="50" />,
-            <img src="/assets/icons/5.png" alt="Furnishings" width="50" height="50" />,
-            <img src="/assets/icons/6.png" alt="Gardening" width="50" height="50" />,
-            <img src="/assets/icons/7.png" alt="Handmade" width="50" height="50" />,
-            <img src="/assets/icons/8.png" alt="Imported" width="50" height="50" />,
-            <img src="/assets/icons/9.png" alt="Jewelry" width="50" height="50" />,
-            <img src="/assets/icons/10.png" alt="Tech" width="50" height="50" />
+            "All Shops", "Antiques", "Appliances", "Art", "Books", "Clothing", "Country", "Food", "Furnishings", "Gardening", "Gift Shops", "Handmade Goods", "Imported Goods", "Jewelry", "Novelty", "Pet", "Tech", "Thrift", "Alcohol", "Coffee", "Delivery", "Dining"
           ],
 
           inputOption: "All Shops",
