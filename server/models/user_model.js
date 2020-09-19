@@ -29,13 +29,11 @@ userSchema.methods = {
       "Messages":[
         {
           "From": {
-            "Email": "noreply@whidbey.app",
-            "Name": "Zach"
+            "Email": "noreply@whidbey.app"
           },
           "To": [
             {
-              "Email": "zach.noble.smith@gmail.com",
-              "Name": "Zach"
+              "Email": email
             }
           ],
           "Subject": "Verify your Whidbey.app account",
