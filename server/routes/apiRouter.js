@@ -11,9 +11,9 @@ const fetch = require('isomorphic-fetch');
 
 // registerShop API
 router.post('/register-shop', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var Shop = require('/etc/whidbey.io/server/models/shop_model.js');
-  var Profile = require('/etc/whidbey.io/server/models/profile_model.js');
+  var db = require('/etc/whidbey.app/server/db/whidbey_db_connec.js');
+  var Shop = require('/etc/whidbey.app/server/models/shop_model.js');
+  var Profile = require('/etc/whidbey.app/server/models/profile_model.js');
 
   var shop = new Shop({ });
   var shopProfile = Profile.find({uname: req.body.owner});
@@ -59,10 +59,10 @@ router.post('/captcha', ((req, res) => {
 // login API
 router.post('/login', ((req, res) => {
 
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var User = require('/etc/whidbey.io/server/models/user_model.js');
-  var Profile = require('/etc/whidbey.io/server/models/profile_model.js');
-  var Shop = require('/etc/whidbey.io/server/models/shop_model.js');
+  var db = require('/etc/whidbey.app/server/db/whidbey_db_connec.js');
+  var User = require('/etc/whidbey.app/server/models/user_model.js');
+  var Profile = require('/etc/whidbey.app/server/models/profile_model.js');
+  var Shop = require('/etc/whidbey.app/server/models/shop_model.js');
 
 
   var loginUser = new User({});
@@ -122,8 +122,8 @@ router.post('/logout', ((req, res) => {
 
 // register API
 router.post('/register', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var User = require('/etc/whidbey.io/server/models/user_model.js');
+  var db = require('/etc/whidbey.app/server/db/whidbey_db_connec.js');
+  var User = require('/etc/whidbey.app/server/models/user_model.js');
 
   var user = new User({ /*uname: req.body.email, upass: user.encryptPass(req.body.pass)*/ });
   var regUser = User.find({uname: req.body.email}).limit(1);
@@ -146,8 +146,8 @@ router.post('/register', ((req, res) => {
 }));
 
 router.post('/shops', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var Shop = require('/etc/whidbey.io/server/models/shop_model.js');
+  var db = require('/etc/whidbey.app/server/db/whidbey_db_connec.js');
+  var Shop = require('/etc/whidbey.app/server/models/shop_model.js');
 
   var searchedShops;
 
@@ -172,8 +172,8 @@ router.get('/session', ((req, res) => {
 }));
 
 router.get('/profile_load', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var Profile = require('/etc/whidbey.io/server/models/profile_model.js');
+  var db = require('/etc/whidbey.app/server/db/whidbey_db_connec.js');
+  var Profile = require('/etc/whidbey.app/server/models/profile_model.js');
   var userProfile = Profile.find({uname: req.session.uname}).lean();
   userProfile.then((x, err) => {
     x.length > 0 ? res.send(x[0]) /*sendProf()*/ : console.log('no profile')/* no profile */ ;
@@ -181,8 +181,8 @@ router.get('/profile_load', ((req, res) => {
 }));
 
 router.post('/profile_edit', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var Profile = require('/etc/whidbey.io/server/models/profile_model.js');
+  var db = require('/etc/whidbey.app/server/db/whidbey_db_connec.js');
+  var Profile = require('/etc/whidbey.app/server/models/profile_model.js');
   var userProfile = Profile.find({uname: req.session.uname}).limit(1);
 
   userProfile.then((x, err) => { x.length > 0 ? editProf(x[0]) : editProf(new Profile({}))})
@@ -200,8 +200,8 @@ router.post('/profile_edit', ((req, res) => {
 
 // saves a message in the db. messages are ordered into a 'message chain' by their timestamps, which are automatically created when inputted in the db.
 router.post('/send_message', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js');
-  var Message = require('/etc/whidbey.io/server/models/message_model.js');
+  var db = require('/etc/whidbey.app/server/db/whidbey_db_connec.js');
+  var Message = require('/etc/whidbey.app/server/models/message_model.js');
   var msg_chain = Message({sender_id: req.body.sender_id, receiver_id: req.body.receiver_id, msg_content: req.body.msg_content});
   msg_chain.save();
   res.send({success:true});
@@ -209,12 +209,12 @@ router.post('/send_message', ((req, res) => {
 
 // get all messages
 router.post('/get_messages', ((req, res) => {
-  var db = require('/etc/whidbey.io/server/db/whidbey_db_connec.js'); 
-  var User = require('/etc/whidbey.io/server/models/profile_model.js');
+  var db = require('/etc/whidbey.app/server/db/whidbey_db_connec.js'); 
+  var User = require('/etc/whidbey.app/server/models/profile_model.js');
 
   // get my user id
   var myUser = User.find({uname: req.session.uname}).limit(1);
-  var Message = require('/etc/whidbey.io/server/models/message_model.js');
+  var Message = require('/etc/whidbey.app/server/models/message_model.js');
 
   // once my id is fetched
   myUser.then((x, err) => {

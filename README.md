@@ -1,4 +1,4 @@
-# whidbey.io - a whidbey island merchant utility to allow local shops display their items
+# whidbey.app - a whidbey island merchant utility to allow local shops display their items
 ******
 ### To do:
 ```

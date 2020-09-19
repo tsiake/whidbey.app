@@ -1,4 +1,4 @@
-# whidbey.io client side
+# whidbey.app client side
 ******
 ```
 client side configuration, stores all code for what the user sees.

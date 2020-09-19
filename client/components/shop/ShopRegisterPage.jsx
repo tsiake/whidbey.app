@@ -196,7 +196,7 @@ class ShopRegisterPage extends React.Component {
               </Row>
               <Card body>
                 <h2>{ this.state.inputShopName }</h2>
-                <h4>{ this.state.inputShopLink ? "https://whidbey.io/shops/" + this.state.inputShopLink : "" }</h4>
+                <h4>{ this.state.inputShopLink ? "https://whidbey.app/shops/" + this.state.inputShopLink : "" }</h4>
                 <p>{ this.state.inputStreet } </p>
                 <p>{ this.state.inputCity + " " + this.state.inputZip }</p>
                 <p><small>{this.state.inputPhone && this.state.inputWeb ? this.state.inputPhone + "  -  "  + this.state.inputWeb : this.state.inputPhone ? this.inputPhone : this.state.inputWeb ? this.state.inputWeb : ""}</small></p>

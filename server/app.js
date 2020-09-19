@@ -6,7 +6,7 @@ var session = require('express-session');
 
 require('dotenv').config();
 
-app.use(express.static('/etc/whidbey.io/client/'));
+app.use(express.static('/etc/whidbey.app/client/'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

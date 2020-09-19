@@ -22,7 +22,7 @@ shopSchema.methods = {
       service: "gmail",
       auth: {
         type: "OAuth2",
-        user: "noreply@whidbey.io",
+        user: "noreply@whidbey.app",
         clientId: process.env.REACT_APP_CLIENT_ID,
         clientSecret: process.env.REACT_APP_CLIENT_SECRET,
         refreshToken: process.env.REACT_APP_REFRESH_TOKEN,
@@ -31,16 +31,16 @@ shopSchema.methods = {
     });
 
     let mailOptions = {
-      from: '"The whidbey.io team" <' + process.env.REACT_APP_EMAIL + '>',
+      from: '"The whidbey.app team" <' + process.env.REACT_APP_EMAIL + '>',
       to: email,
       subject: "Your shop is now registered on Whidbey.io",
       generateTextFromHTML: true,
-      html: "<b><a href='https://whidbey.io/shops/" + shop_link + "'>View your registered shop here.</a><br/> If the above link doesn't work, paste this link into your browser's URL: https://whidbey.io/shops/"+shop_link+"</b>"
+      html: "<b><a href='https://whidbey.app/shops/" + shop_link + "'>View your registered shop here.</a><br/> If the above link doesn't work, paste this link into your browser's URL: https://whidbey.app/shops/"+shop_link+"</b>"
     }
 
     transporter.sendMail(mailOptions, (error, response) => {
       if (error) {
-        fs.writeFile("/var/log/whidbey.io/error.log", "User email: " + email + "\nError:" + error + "\n**********", function(err) {
+        fs.writeFile("/var/log/whidbey.app/error.log", "User email: " + email + "\nError:" + error + "\n**********", function(err) {
           if(err) {
             return console.log("Had trouble writing error log: " + err);
           } else {

@@ -54,7 +54,7 @@ class NavBar extends React.Component {
   render() {
     return(
 <Navbar expand="lg" className="navbar_full">
-  <Navbar.Brand href="/" style={{fontFamily: 'Poppins-Light', backgroundColor:'#ffffff', color: '#222222'}}><img src="/assets/img/swb.png" alt="whidbey.io" width="66.25" height="50" /></Navbar.Brand>
+  <Navbar.Brand href="/" style={{fontFamily: 'Poppins-Light', backgroundColor:'#ffffff', color: '#222222'}}><img src="/assets/img/swb.png" alt="whidbey.app" width="66.25" height="50" /></Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
       <NavDropdown

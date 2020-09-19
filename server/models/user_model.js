@@ -21,39 +21,30 @@ userSchema.methods = {
   },
 
   sendVerificationMail: function(email, link) {
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        type: "OAuth2",
-        user: "noreply@whidbey.io",
-        clientId: process.env.REACT_APP_CLIENT_ID,
-        clientSecret: process.env.REACT_APP_CLIENT_SECRET,
-        refreshToken: process.env.REACT_APP_REFRESH_TOKEN,
-        accessToken: process.env.REACT_APP_ACCESS_TOKEN
-      }
-    });
-
-    let mailOptions = {
-      from: '"The whidbey.io team" <' + process.env.REACT_APP_EMAIL + '>',
-      to: email,
-      subject: "Please confirm whidbey.io account email",
-      generateTextFromHTML: true,
-      html: "<b><a href='https://whidbey.io/confirm/" + link + "'>Please confirm your whidbey.io email by clicking here.</a><br/> If the above link doesn't work, paste this link into your browser's URL: https://whidbey.io/confirm/"+link+"</b>"
-    }
-
-    transporter.sendMail(mailOptions, (error, response) => {
-      if (error) {
-        fs.writeFile("/var/log/whidbey.io/error.log", "User email: " + email + "\nError:" + error + "\n**********", function(err) {
-          if(err) {
-            return console.log("Had trouble writing error log: " + err);
-          } else {
-            console.log("error log saved");
-          }
-        });
-      }
-      transporter.close();
+    const mailjet = require ('node-mailjet')
+    .connect(process.env.REACT_APP_CLIENT_ID, process.env.REACT_APP_CLIENT_KEY)
+    const request = mailjet
+    .post("send", {'version': 'v3.1'})
+    .request({
+      "Messages":[
+        {
+          "From": {
+            "Email": "noreply@whidbey.app",
+            "Name": "Zach"
+          },
+          "To": [
+            {
+              "Email": "zach.noble.smith@gmail.com",
+              "Name": "Zach"
+            }
+          ],
+          "Subject": "Verify your Whidbey.app account",
+          "TextPart": ">Please confirm your whidbey.app email by clicking here.  If the above link doesn't work, paste this link into your browser's URL: https://whidbey.app/confirm/"+link,
+          "HTMLPart": "<b><a href='https://whidbey.app/confirm/" + link + "'>Please confirm your whidbey.app email by clicking here.</a><br/> If the above link doesn't work, paste this link into your browser's URL: https://whidbey.app/confirm/"+link+"</b>",
+        }
+      ]
     })
   }
-};
+}
 
 module.exports = mongoose.model('User', userSchema, 'users');

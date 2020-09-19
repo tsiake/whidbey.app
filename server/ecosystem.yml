@@ -1,6 +1,6 @@
 apps:
-  - script: /etc/whidbey.io/server/app.js
-    name: "whidbey.io app"
+  - script: /etc/whidbey.app/server/app.js
+    name: "whidbey.app app"
     env:
       NODE_ENV: development
     env_production:
